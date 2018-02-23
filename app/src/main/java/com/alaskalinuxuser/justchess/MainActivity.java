@@ -250,7 +250,14 @@ public class MainActivity extends AppCompatActivity {
     } // End next move buton.
 
     public void moveablePiece (View view) {
-        Log.i("WJH", "clicked sqaure.");
+
+        // Get the clicked squares tag to see what number it is.
+        int played = Integer.parseInt(view.getTag().toString());
+
+        Log.i("WJH", "clicked sqaure "+ String.valueOf(played));
+        moveOptions= terminal("availMoves,"+String.valueOf(wTurn));
+        mCtv.setText(moveOptions);
+
     } // End clicked piece.
 
     public void plyAdjustPlus(View view) {

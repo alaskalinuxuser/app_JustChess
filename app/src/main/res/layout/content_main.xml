@@ -58,7 +58,7 @@ android:rowCount="8">
     android:columnCount="0"
     android:onClick="moveablePiece"
     android:rowCount="0"
-    android:tag="0" />
+    android:tag="56" />
 
 <ImageView
     android:id="@+id/p57"
@@ -68,7 +68,7 @@ android:rowCount="8">
     android:columnCount="1"
     android:onClick="moveablePiece"
     android:rowCount="0"
-    android:tag="0" />
+    android:tag="57" />
 
 <ImageView
     android:id="@+id/p58"
@@ -78,7 +78,7 @@ android:rowCount="8">
     android:columnCount="2"
     android:onClick="moveablePiece"
     android:rowCount="0"
-    android:tag="0" />
+    android:tag="58" />
 
 <ImageView
     android:id="@+id/p59"
@@ -88,7 +88,7 @@ android:rowCount="8">
     android:columnCount="3"
     android:onClick="moveablePiece"
     android:rowCount="0"
-    android:tag="0" />
+    android:tag="59" />
 
 <ImageView
     android:id="@+id/p60"
@@ -98,7 +98,7 @@ android:rowCount="8">
     android:columnCount="4"
     android:onClick="moveablePiece"
     android:rowCount="0"
-    android:tag="0" />
+    android:tag="60" />
 
 <ImageView
     android:id="@+id/p61"
@@ -108,7 +108,7 @@ android:rowCount="8">
     android:columnCount="5"
     android:onClick="moveablePiece"
     android:rowCount="0"
-    android:tag="0" />
+    android:tag="61" />
 
 <ImageView
     android:id="@+id/p62"
@@ -118,7 +118,7 @@ android:rowCount="8">
     android:columnCount="6"
     android:onClick="moveablePiece"
     android:rowCount="0"
-    android:tag="0" />
+    android:tag="62" />
 
 <ImageView
     android:id="@+id/p63"
@@ -128,7 +128,7 @@ android:rowCount="8">
     android:columnCount="7"
     android:onClick="moveablePiece"
     android:rowCount="0"
-    android:tag="0" />
+    android:tag="63" />
 
 <ImageView
     android:id="@+id/p48"
@@ -138,7 +138,7 @@ android:rowCount="8">
     android:columnCount="0"
     android:onClick="moveablePiece"
     android:rowCount="1"
-    android:tag="0" />
+    android:tag="48" />
 
 <ImageView
     android:id="@+id/p49"
@@ -148,7 +148,7 @@ android:rowCount="8">
     android:columnCount="1"
     android:onClick="moveablePiece"
     android:rowCount="1"
-    android:tag="0" />
+    android:tag="49" />
 
 <ImageView
     android:id="@+id/p50"
@@ -158,7 +158,7 @@ android:rowCount="8">
     android:columnCount="2"
     android:onClick="moveablePiece"
     android:rowCount="1"
-    android:tag="0" />
+    android:tag="50" />
 
 <ImageView
     android:id="@+id/p51"
@@ -168,7 +168,7 @@ android:rowCount="8">
     android:columnCount="3"
     android:onClick="moveablePiece"
     android:rowCount="1"
-    android:tag="0" />
+    android:tag="51" />
 
 <ImageView
     android:id="@+id/p52"
@@ -178,7 +178,7 @@ android:rowCount="8">
     android:columnCount="4"
     android:onClick="moveablePiece"
     android:rowCount="1"
-    android:tag="0" />
+    android:tag="52" />
 
 <ImageView
     android:id="@+id/p53"
@@ -188,7 +188,7 @@ android:rowCount="8">
     android:columnCount="5"
     android:onClick="moveablePiece"
     android:rowCount="1"
-    android:tag="0" />
+    android:tag="53" />
 
 <ImageView
     android:id="@+id/p54"
@@ -198,7 +198,7 @@ android:rowCount="8">
     android:columnCount="6"
     android:onClick="moveablePiece"
     android:rowCount="1"
-    android:tag="0" />
+    android:tag="54" />
 
 <ImageView
     android:id="@+id/p55"
@@ -208,7 +208,7 @@ android:rowCount="8">
     android:columnCount="7"
     android:onClick="moveablePiece"
     android:rowCount="1"
-    android:tag="0" />
+    android:tag="55" />
 
 <ImageView
     android:id="@+id/p40"
@@ -218,7 +218,7 @@ android:rowCount="8">
     android:columnCount="0"
     android:onClick="moveablePiece"
     android:rowCount="2"
-    android:tag="0" />
+    android:tag="40" />
 
 <ImageView
     android:id="@+id/p41"
@@ -228,7 +228,7 @@ android:rowCount="8">
     android:columnCount="1"
     android:onClick="moveablePiece"
     android:rowCount="2"
-    android:tag="0" />
+    android:tag="41" />
 
 <ImageView
     android:id="@+id/p42"
@@ -238,7 +238,7 @@ android:rowCount="8">
     android:columnCount="2"
     android:onClick="moveablePiece"
     android:rowCount="2"
-    android:tag="0" />
+    android:tag="42" />
 
 <ImageView
     android:id="@+id/p43"
@@ -248,7 +248,7 @@ android:rowCount="8">
     android:columnCount="3"
     android:onClick="moveablePiece"
     android:rowCount="2"
-    android:tag="0" />
+    android:tag="43" />
 
 <ImageView
     android:id="@+id/p44"
@@ -258,7 +258,7 @@ android:rowCount="8">
     android:columnCount="4"
     android:onClick="moveablePiece"
     android:rowCount="2"
-    android:tag="0" />
+    android:tag="44" />
 
 <ImageView
     android:id="@+id/p45"
@@ -268,7 +268,7 @@ android:rowCount="8">
     android:columnCount="5"
     android:onClick="moveablePiece"
     android:rowCount="2"
-    android:tag="0" />
+    android:tag="45" />
 
 <ImageView
     android:id="@+id/p46"
@@ -278,7 +278,7 @@ android:rowCount="8">
     android:columnCount="6"
     android:onClick="moveablePiece"
     android:rowCount="2"
-    android:tag="0" />
+    android:tag="46" />
 
 <ImageView
     android:id="@+id/p47"
@@ -288,7 +288,7 @@ android:rowCount="8">
     android:columnCount="7"
     android:onClick="moveablePiece"
     android:rowCount="2"
-    android:tag="0" />
+    android:tag="47" />
 
 <ImageView
     android:id="@+id/p32"
@@ -298,7 +298,7 @@ android:rowCount="8">
     android:columnCount="0"
     android:onClick="moveablePiece"
     android:rowCount="3"
-    android:tag="0" />
+    android:tag="32" />
 
 <ImageView
     android:id="@+id/p33"
@@ -308,7 +308,7 @@ android:rowCount="8">
     android:columnCount="1"
     android:onClick="moveablePiece"
     android:rowCount="3"
-    android:tag="0" />
+    android:tag="33" />
 
 <ImageView
     android:id="@+id/p34"
@@ -318,7 +318,7 @@ android:rowCount="8">
     android:columnCount="2"
     android:onClick="moveablePiece"
     android:rowCount="3"
-    android:tag="0" />
+    android:tag="34" />
 
 <ImageView
     android:id="@+id/p35"
@@ -328,7 +328,7 @@ android:rowCount="8">
     android:columnCount="3"
     android:onClick="moveablePiece"
     android:rowCount="3"
-    android:tag="0" />
+    android:tag="35" />
 
 <ImageView
     android:id="@+id/p36"
@@ -338,7 +338,7 @@ android:rowCount="8">
     android:columnCount="4"
     android:onClick="moveablePiece"
     android:rowCount="3"
-    android:tag="0" />
+    android:tag="36" />
 
 <ImageView
     android:id="@+id/p37"
@@ -348,7 +348,7 @@ android:rowCount="8">
     android:columnCount="5"
     android:onClick="moveablePiece"
     android:rowCount="3"
-    android:tag="0" />
+    android:tag="37" />
 
 <ImageView
     android:id="@+id/p38"
@@ -358,7 +358,7 @@ android:rowCount="8">
     android:columnCount="6"
     android:onClick="moveablePiece"
     android:rowCount="3"
-    android:tag="0" />
+    android:tag="38" />
 
 <ImageView
     android:id="@+id/p39"
@@ -368,7 +368,7 @@ android:rowCount="8">
     android:columnCount="7"
     android:onClick="moveablePiece"
     android:rowCount="3"
-    android:tag="0" />
+    android:tag="39" />
 
 <ImageView
     android:id="@+id/p24"
@@ -378,7 +378,7 @@ android:rowCount="8">
     android:columnCount="0"
     android:onClick="moveablePiece"
     android:rowCount="4"
-    android:tag="0" />
+    android:tag="24" />
 
 <ImageView
     android:id="@+id/p25"
@@ -388,7 +388,7 @@ android:rowCount="8">
     android:columnCount="1"
     android:onClick="moveablePiece"
     android:rowCount="4"
-    android:tag="0" />
+    android:tag="25" />
 
 <ImageView
     android:id="@+id/p26"
@@ -398,7 +398,7 @@ android:rowCount="8">
     android:columnCount="2"
     android:onClick="moveablePiece"
     android:rowCount="4"
-    android:tag="0" />
+    android:tag="26" />
 
 <ImageView
     android:id="@+id/p27"
@@ -408,7 +408,7 @@ android:rowCount="8">
     android:columnCount="3"
     android:onClick="moveablePiece"
     android:rowCount="4"
-    android:tag="0" />
+    android:tag="27" />
 
 <ImageView
     android:id="@+id/p28"
@@ -418,7 +418,7 @@ android:rowCount="8">
     android:columnCount="4"
     android:onClick="moveablePiece"
     android:rowCount="4"
-    android:tag="0" />
+    android:tag="28" />
 
 <ImageView
     android:id="@+id/p29"
@@ -428,7 +428,7 @@ android:rowCount="8">
     android:columnCount="5"
     android:onClick="moveablePiece"
     android:rowCount="4"
-    android:tag="0" />
+    android:tag="29" />
 
 <ImageView
     android:id="@+id/p30"
@@ -438,7 +438,7 @@ android:rowCount="8">
     android:columnCount="6"
     android:onClick="moveablePiece"
     android:rowCount="4"
-    android:tag="0" />
+    android:tag="30" />
 
 <ImageView
     android:id="@+id/p31"
@@ -448,7 +448,7 @@ android:rowCount="8">
     android:columnCount="7"
     android:onClick="moveablePiece"
     android:rowCount="4"
-    android:tag="0" />
+    android:tag="31" />
 
 <ImageView
     android:id="@+id/p16"
@@ -458,7 +458,7 @@ android:rowCount="8">
     android:columnCount="0"
     android:onClick="moveablePiece"
     android:rowCount="5"
-    android:tag="0" />
+    android:tag="16" />
 
 <ImageView
     android:id="@+id/p17"
@@ -468,7 +468,7 @@ android:rowCount="8">
     android:columnCount="1"
     android:onClick="moveablePiece"
     android:rowCount="5"
-    android:tag="0" />
+    android:tag="17" />
 
 <ImageView
     android:id="@+id/p18"
@@ -478,7 +478,7 @@ android:rowCount="8">
     android:columnCount="2"
     android:onClick="moveablePiece"
     android:rowCount="5"
-    android:tag="0" />
+    android:tag="18" />
 
 <ImageView
     android:id="@+id/p19"
@@ -488,7 +488,7 @@ android:rowCount="8">
     android:columnCount="3"
     android:onClick="moveablePiece"
     android:rowCount="5"
-    android:tag="0" />
+    android:tag="19" />
 
 <ImageView
     android:id="@+id/p20"
@@ -498,7 +498,7 @@ android:rowCount="8">
     android:columnCount="4"
     android:onClick="moveablePiece"
     android:rowCount="5"
-    android:tag="0" />
+    android:tag="20" />
 
 <ImageView
     android:id="@+id/p21"
@@ -508,7 +508,7 @@ android:rowCount="8">
     android:columnCount="5"
     android:onClick="moveablePiece"
     android:rowCount="5"
-    android:tag="0" />
+    android:tag="21" />
 
 <ImageView
     android:id="@+id/p22"
@@ -518,7 +518,7 @@ android:rowCount="8">
     android:columnCount="6"
     android:onClick="moveablePiece"
     android:rowCount="5"
-    android:tag="0" />
+    android:tag="22" />
 
 <ImageView
     android:id="@+id/p23"
@@ -528,7 +528,7 @@ android:rowCount="8">
     android:columnCount="7"
     android:onClick="moveablePiece"
     android:rowCount="5"
-    android:tag="0" />
+    android:tag="23" />
 
 <ImageView
     android:id="@+id/p8"
@@ -538,7 +538,7 @@ android:rowCount="8">
     android:columnCount="0"
     android:onClick="moveablePiece"
     android:rowCount="6"
-    android:tag="0" />
+    android:tag="8" />
 
 <ImageView
     android:id="@+id/p9"
@@ -548,7 +548,7 @@ android:rowCount="8">
     android:columnCount="1"
     android:onClick="moveablePiece"
     android:rowCount="6"
-    android:tag="0" />
+    android:tag="9" />
 
 <ImageView
     android:id="@+id/p10"
@@ -558,7 +558,7 @@ android:rowCount="8">
     android:columnCount="2"
     android:onClick="moveablePiece"
     android:rowCount="6"
-    android:tag="0" />
+    android:tag="10" />
 
 <ImageView
     android:id="@+id/p11"
@@ -568,7 +568,7 @@ android:rowCount="8">
     android:columnCount="3"
     android:onClick="moveablePiece"
     android:rowCount="6"
-    android:tag="0" />
+    android:tag="11" />
 
 <ImageView
     android:id="@+id/p12"
@@ -578,7 +578,7 @@ android:rowCount="8">
     android:columnCount="4"
     android:onClick="moveablePiece"
     android:rowCount="6"
-    android:tag="0" />
+    android:tag="12" />
 
 <ImageView
     android:id="@+id/p13"
@@ -588,7 +588,7 @@ android:rowCount="8">
     android:columnCount="5"
     android:onClick="moveablePiece"
     android:rowCount="6"
-    android:tag="0" />
+    android:tag="13" />
 
 <ImageView
     android:id="@+id/p14"
@@ -598,7 +598,7 @@ android:rowCount="8">
     android:columnCount="6"
     android:onClick="moveablePiece"
     android:rowCount="6"
-    android:tag="0" />
+    android:tag="14" />
 
 <ImageView
     android:id="@+id/p15"
@@ -608,7 +608,7 @@ android:rowCount="8">
     android:columnCount="7"
     android:onClick="moveablePiece"
     android:rowCount="6"
-    android:tag="0" />
+    android:tag="15" />
 
 <ImageView
     android:id="@+id/p0"
@@ -628,7 +628,7 @@ android:rowCount="8">
     android:columnCount="1"
     android:onClick="moveablePiece"
     android:rowCount="7"
-    android:tag="0" />
+    android:tag="1" />
 
 <ImageView
     android:id="@+id/p2"
@@ -638,7 +638,7 @@ android:rowCount="8">
     android:columnCount="2"
     android:onClick="moveablePiece"
     android:rowCount="7"
-    android:tag="0" />
+    android:tag="2" />
 
 <ImageView
     android:id="@+id/p3"
@@ -648,7 +648,7 @@ android:rowCount="8">
     android:columnCount="3"
     android:onClick="moveablePiece"
     android:rowCount="7"
-    android:tag="0" />
+    android:tag="3" />
 
 <ImageView
     android:id="@+id/p4"
@@ -658,7 +658,7 @@ android:rowCount="8">
     android:columnCount="4"
     android:onClick="moveablePiece"
     android:rowCount="7"
-    android:tag="0" />
+    android:tag="4" />
 
 <ImageView
     android:id="@+id/p5"
@@ -668,7 +668,7 @@ android:rowCount="8">
     android:columnCount="5"
     android:onClick="moveablePiece"
     android:rowCount="7"
-    android:tag="0" />
+    android:tag="5" />
 
 <ImageView
     android:id="@+id/p6"
@@ -678,7 +678,7 @@ android:rowCount="8">
     android:columnCount="6"
     android:onClick="moveablePiece"
     android:rowCount="7"
-    android:tag="0" />
+    android:tag="6" />
 
 <ImageView
     android:id="@+id/p7"
@@ -688,7 +688,7 @@ android:rowCount="8">
     android:columnCount="7"
     android:onClick="moveablePiece"
     android:rowCount="7"
-    android:tag="0" />
+    android:tag="7" />
 
 </GridLayout>
 
