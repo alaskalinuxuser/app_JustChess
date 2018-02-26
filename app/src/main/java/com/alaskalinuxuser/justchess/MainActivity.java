@@ -56,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
             x48,x49,x50,x51,x52,x53,x54,x55,x56,x57,x58,x59,x60,x61,x62,x63};
 
     int engineStrength;
-    boolean wTurn;
+    boolean wTurn, firstClick;
+    String tryMove;
 
     static Button nextMoveB,pB,mB;
     static TextView pN, tVms, mCtv;
@@ -79,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        firstClick = false;
 
         moveOptions = "Move Options";
         pB = (Button)findViewById(R.id.plusB);
@@ -253,12 +256,44 @@ public class MainActivity extends AppCompatActivity {
     public void moveablePiece (View view) {
 
         // Get the clicked squares tag to see what number it is.
-        int played = Integer.parseInt(view.getTag().toString());
+        int number = Integer.parseInt(view.getTag().toString());
+        String played;
+        if (number < 10) {
+            played = "0" + String.valueOf(number);
+        } else {
+            played = String.valueOf(number);
+        }
 
-        Log.i("WJH", "clicked sqaure "+ String.valueOf(played));
-        Log.i("WJH", "clicked piece "+ theBoard[played]);
-        moveOptions= terminal("availMoves,"+String.valueOf(wTurn));
-        mCtv.setText(moveOptions);
+        if (firstClick) {
+
+            firstClick=false;
+            String myMove = tryMove + played + String.valueOf(theBoard[number]);
+            Log.i("WJH", myMove);
+            moveOptions= terminal("availMoves,"+String.valueOf(wTurn));
+
+            String[] separated = moveOptions.split(",");
+
+            if (Arrays.asList(separated).contains(myMove)) {
+
+                String query = terminal("myMove,"+myMove);
+                Log.i("WJH", query);
+                drawBoardPieces();
+                wTurn = !wTurn;
+
+            }
+            tryMove = "";
+            myMove = "";
+            mCtv.setText(moveOptions);
+
+        } else {
+
+            firstClick=true;
+            tryMove = String.valueOf(theBoard[number]) + played;
+            Log.i("WJH", tryMove);
+            String query = terminal("pieceMoves,"+ String.valueOf(theBoard[number]) +
+                    "," + played);
+            mCtv.setText(query);
+        }
 
     } // End clicked piece.
 
