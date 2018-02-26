@@ -32,6 +32,7 @@ import android.widget.TextView;
 import java.util.Arrays;
 
 import static com.alaskalinuxuser.justchess.TheEngine.terminal;
+import static com.alaskalinuxuser.justchess.TheEngine.theBoard;
 import static com.alaskalinuxuser.justchess.TheUserInterface.drawBoardPieces;
 
 public class MainActivity extends AppCompatActivity {
@@ -255,6 +256,7 @@ public class MainActivity extends AppCompatActivity {
         int played = Integer.parseInt(view.getTag().toString());
 
         Log.i("WJH", "clicked sqaure "+ String.valueOf(played));
+        Log.i("WJH", "clicked piece "+ theBoard[played]);
         moveOptions= terminal("availMoves,"+String.valueOf(wTurn));
         mCtv.setText(moveOptions);
 
