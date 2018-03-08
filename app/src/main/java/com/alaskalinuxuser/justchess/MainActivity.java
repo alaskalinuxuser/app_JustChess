@@ -269,6 +269,12 @@ public class MainActivity extends AppCompatActivity {
             firstClick=false;
             String myMove = tryMove + played + String.valueOf(theBoard[number]);
             Log.i("WJH", myMove);
+
+            if (myMove.equalsIgnoreCase("K0406*")){myMove="K-0-0R";}
+            else if (myMove.equalsIgnoreCase("K0402*")){myMove="K0-0-0";}
+            else if (myMove.equalsIgnoreCase("k6062*")){myMove="k-0-0r";}
+            else if (myMove.equalsIgnoreCase("k6058*")){myMove="k0-0-0";}
+            Log.i("WJH", myMove);
             moveOptions= terminal("availMoves,"+String.valueOf(wTurn));
 
             String[] separated = moveOptions.split(",");
