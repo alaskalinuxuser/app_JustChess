@@ -31,6 +31,8 @@ import android.widget.TextView;
 
 import java.util.Arrays;
 
+import static com.alaskalinuxuser.justchess.TheEngine.getPromoteToB;
+import static com.alaskalinuxuser.justchess.TheEngine.promoteToW;
 import static com.alaskalinuxuser.justchess.TheEngine.terminal;
 import static com.alaskalinuxuser.justchess.TheEngine.theBoard;
 import static com.alaskalinuxuser.justchess.TheUserInterface.drawBoardPieces;
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     static TextView pN, tVms, mCtv;
     static String moveOptions;
     static long startTime, stopTime;
-    static int searchDepth;
+    static int searchDepth, firstNum, secNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -266,14 +268,44 @@ public class MainActivity extends AppCompatActivity {
 
         if (firstClick) {
 
-            firstClick=false;
+            int minusNum = number-firstNum;
+            int plusNum = firstNum-number;
+
+            firstClick = false;
             String myMove = tryMove + played + String.valueOf(theBoard[number]);
-            Log.i("WJH", myMove);
+            Log.i("WJH", myMove + "," + String.valueOf(minusNum) + "," + String.valueOf(plusNum));
 
             if (myMove.equalsIgnoreCase("K0406*")){myMove="K-0-0R";}
             else if (myMove.equalsIgnoreCase("K0402*")){myMove="K0-0-0";}
             else if (myMove.equalsIgnoreCase("k6062*")){myMove="k-0-0r";}
             else if (myMove.equalsIgnoreCase("k6058*")){myMove="k0-0-0";}
+
+
+            if (myMove.contains("P48")||myMove.contains("P49")||myMove.contains("P50")||
+                    myMove.contains("P51")||myMove.contains("P52")||myMove.contains("P53")||
+                    myMove.contains("P54")||myMove.contains("P55")) {
+                if ( minusNum == 8) {
+                    myMove = "Pu" + promoteToW + played + String.valueOf(theBoard[number]);
+                } else if (minusNum == 9) {
+                    myMove = "Pr" + promoteToW + played + String.valueOf(theBoard[number]);
+                } else if (minusNum == 7) {
+                    myMove = "Pl" + promoteToW + played + String.valueOf(theBoard[number]);
+                }
+            }
+
+            if (myMove.contains("p08")||myMove.contains("p09")||myMove.contains("p10")||
+                    myMove.contains("p11")||myMove.contains("p12")||myMove.contains("p13")||
+                    myMove.contains("p14")||myMove.contains("p15")) {
+                if ( plusNum == 8) {
+                    myMove = "pu" + getPromoteToB + played + String.valueOf(theBoard[number]);
+                } else if (plusNum == 7) {
+                    myMove = "pr" + getPromoteToB + played + String.valueOf(theBoard[number]);
+                } else if (plusNum == 9) {
+                    myMove = "pl" + getPromoteToB + played + String.valueOf(theBoard[number]);
+                }
+            }
+
+
             Log.i("WJH", myMove);
             moveOptions= terminal("availMoves,"+String.valueOf(wTurn));
 
@@ -292,8 +324,8 @@ public class MainActivity extends AppCompatActivity {
             mCtv.setText(moveOptions);
 
         } else {
-
-            firstClick=true;
+            firstNum = number;
+            firstClick = true;
             tryMove = String.valueOf(theBoard[number]) + played;
             Log.i("WJH", tryMove);
             String query = terminal("pieceMoves,"+ String.valueOf(theBoard[number]) +
