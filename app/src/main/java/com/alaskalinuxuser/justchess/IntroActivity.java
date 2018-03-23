@@ -20,6 +20,7 @@ import java.io.FileInputStream;
 public class IntroActivity extends AppCompatActivity {
 
     static ImageView singleButton, doubleButton;
+    static Boolean pBlack, pPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,8 @@ public class IntroActivity extends AppCompatActivity {
 
         singleButton = (ImageView) findViewById(R.id.playSingleButton);
         doubleButton = (ImageView) findViewById(R.id.playDoubleButton);
+        pBlack = false;
+        pPass = false;
 
     } // End on create.
 
@@ -56,6 +59,13 @@ public class IntroActivity extends AppCompatActivity {
                         Log.i("WJH", "Clicked Black.");
 
                         //what to do.
+                        pBlack = true;
+                        pPass = false;
+
+                        // First you define it.
+                        Intent myintent = new Intent(IntroActivity.this, MainActivity.class);
+                        // Now you call it.
+                        startActivity(myintent);
 
                     }
                 })
@@ -65,13 +75,23 @@ public class IntroActivity extends AppCompatActivity {
 
                         Log.i("WJH", "Clicked White.");
 
+                        pBlack = false;
+                        pPass = false;
+
+                        // First you define it.
+                        Intent myintent = new Intent(IntroActivity.this, MainActivity.class);
+                        // Now you call it.
+                        startActivity(myintent);
+
                     }
                 })
                 .show(); // Make sure you show your popup or it wont work very well!
     } // End playSingle
 
     public void playDouble (View doubleButton) {
-        // Call an intent to go to the second screen when you click the about button.
+
+        pBlack = false;
+        pPass = true;
         // First you define it.
         Intent myintent = new Intent(IntroActivity.this, MainActivity.class);
         // Now you call it.

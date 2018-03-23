@@ -31,6 +31,8 @@ import android.widget.TextView;
 
 import java.util.Arrays;
 
+import static com.alaskalinuxuser.justchess.IntroActivity.pBlack;
+import static com.alaskalinuxuser.justchess.IntroActivity.pPass;
 import static com.alaskalinuxuser.justchess.TheEngine.getPromoteToB;
 import static com.alaskalinuxuser.justchess.TheEngine.promoteToW;
 import static com.alaskalinuxuser.justchess.TheEngine.terminal;
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             x32,x33,x34,x35,x36,x37,x38,x39,x40,x41,x42,x43,x44,x45,x46,x47,
             x48,x49,x50,x51,x52,x53,x54,x55,x56,x57,x58,x59,x60,x61,x62,x63};
 
-    int engineStrength;
+    int engineStrength = 1;
     boolean wTurn, firstClick;
     String tryMove;
 
@@ -120,6 +122,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Visually Draw the board....
         drawBoardPieces();
+
+        wTurn = true;
+
+            if (!pPass && pBlack){
+                // Since this is not a pass and play game, and you chose to play as
+                // black, then call move for the computer.
+                getNextMove();
+                wTurn = false;
+            }
+
+
     }// End on create.
 
     @Override
@@ -189,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
             tVms.setText(String.valueOf(stopTime-startTime) + " ms");
             mCtv.setText(moveOptions);
         } else {
-            engineStrength=2;
+            engineStrength=1;
             getNextMove();
         }
     } // End get next move.
@@ -317,6 +330,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("WJH", query);
                 drawBoardPieces();
                 wTurn = !wTurn;
+
+                if (!pPass) {
+                    // Since we moved, if it is not pass and play, make the computer move.
+                    getNextMove();
+                }
 
             }
             tryMove = "";
