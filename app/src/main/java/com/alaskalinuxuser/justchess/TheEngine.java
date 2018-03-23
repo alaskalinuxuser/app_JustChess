@@ -28,7 +28,8 @@ public class TheEngine {
             bKingNeverMove,bKRNeverMove,bQRNeverMove;
     static boolean whiteTurn, stopNow;
     static int whiteKing, blackKing, plyTurn;
-    static String promoteToW = "Q", getPromoteToB = "q", lastMove = "xxxxxx";
+    static String promoteToW = "Q", getPromoteToB = "q", lastMove = "xxxxxx",
+    stringBoard = "RNBQKBNRPPPPPPPP********************************pppppppprnbqkbnr";
 
     static char[] theBoard = {'R','N','B','Q','K','B','N','R','P','P','P','P','P','P','P','P','*','*','*','*',
             '*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*',
@@ -40,9 +41,9 @@ public class TheEngine {
                     50, 50, 50, 50, 50, 50, 50, 50,
                     0,  0,  0,  0,  0,  0,  0,  0,
                     0,  0,  0,  0,  0,  0,  0,  0,
-                    0,  0,  0, 60, 50,  0,  0,  0,
-                    10,  0, 20, 50, 60, 20,  0,  10,
-                    5, 10, 10,-40,-40, 10, 10,  5,
+                    0,  0,  0, 10, 10,  0,  0,  0,
+                    10,  0, 10, 10, 10, 10,  0,  10,
+                    5, 10, 10,-10,-10, 10, 10,  5,
                     0,  0,  0,  0,  0,  0,  0,  0};
     static int rookBoard[]=
             { 0,  0,  0,  0,  0,  0,  0,  0,
@@ -190,7 +191,8 @@ public class TheEngine {
     } // End New game.
 
     public static void callForMove(int engineStrength) {
-
+        //Write down the board, before we start calculating moves.
+        writeBoard();
         if (engineStrength < 1) {
             // Random weak moves.
             String theMoves = allMoves(whiteTurn);
@@ -198,11 +200,17 @@ public class TheEngine {
             Random generator = new Random();
             int choiceMove = generator.nextInt(movesSize);
             String randomMove = theMoves.substring(choiceMove*7, (choiceMove*7)+7);
+            // Make sure our board matches the board prior to a move, in case it was
+            // messed up when we calculated moves.
+            rewriteBoard();
             makeMove(randomMove);
             plyTurn++;
         } else if (engineStrength == 1) {
             // Weak move based solely on  current material.
             String bestMove = makeRatedMove(whiteTurn);
+            // Make sure our board matches the board prior to a move, in case it was
+            // messed up when we calculated moves.
+            rewriteBoard();
             makeMove(bestMove);
             plyTurn++;
         } else {
@@ -211,12 +219,27 @@ public class TheEngine {
             stopNow = false;
             if (whiteTurn) {bestMove = minimaxRoot(engineStrength, true);}
             else {bestMove = minimaxRoot(engineStrength, false);}
+            // Make sure our board matches the board prior to a move, in case it was
+            // messed up when we calculated moves.
+            rewriteBoard();
             makeMove(bestMove);
             plyTurn++;
         }
         // Trade sides after making a move....
         if (whiteTurn) {whiteTurn = false;} else {whiteTurn = true;}
     } // End call for move....
+
+    public static void writeBoard() {
+        // Write down the board, as it is.
+        stringBoard = "";
+        for (int i = 0; i < 64; i++) {stringBoard = stringBoard + String.valueOf(theBoard[i]);}
+    }
+
+    public static void rewriteBoard() {
+        // Make sure our board matches the board prior to a move, in case it was
+        // messed up when we calculated moves.
+        for (int i = 0; i < 64; i++) {theBoard[i] = stringBoard.charAt(i);}
+    }
 
     public static String makeRatedMove(boolean wturn) {
         String theMoves = allMoves(wturn);
@@ -301,7 +324,7 @@ public class TheEngine {
 
     public static int rateMoveablitly(int listLength) {
         int counter=0;
-        counter+=listLength;//5 pointer per valid move
+        counter+=listLength/5;//1 point per valid move
         if (listLength==0) {//current side is in checkmate or stalemate
             if (!isKingSafe()) {//if checkmate
                 counter+=-200000;

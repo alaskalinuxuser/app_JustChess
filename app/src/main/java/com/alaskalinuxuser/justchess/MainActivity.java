@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     static TextView pN, tVms, mCtv;
     static String moveOptions;
     static long startTime, stopTime;
-    static int searchDepth, firstNum, secNum;
+    static int searchDepth, firstNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
             tVms.setText(String.valueOf(stopTime-startTime) + " ms");
             mCtv.setText(moveOptions);
         } else {
-            engineStrength=1;
+            engineStrength=2;
             getNextMove();
         }
     } // End get next move.
