@@ -859,10 +859,10 @@ public class TheEngine {
                 if (theBoard[z+8]=='k') {
                     return false;}
                 if (g > 0) {
-                    if (theBoard[z+7]=='k') {
+                    if (theBoard[z+7]=='k' || theBoard[z+7]=='p') {
                         return false;}}
                 if (g < 7) {
-                    if (theBoard[z+9]=='k') {
+                    if (theBoard[z+9]=='k' || theBoard[z+9]=='p') {
                         return false;}}}
             if (h > 0 ) {
                 if (theBoard[z-8]=='k') {
@@ -874,10 +874,10 @@ public class TheEngine {
                     if (theBoard[z-7]=='k') {
                         return false;}}}
             if (g > 0) {
-                if (theBoard[z-1]=='k' || theBoard[z-1]=='p') {
+                if (theBoard[z-1]=='k') {
                     return false;}}
             if (g < 7) {
-                if (theBoard[z+1]=='k' || theBoard[z+1]=='p') {
+                if (theBoard[z+1]=='k') {
                     return false;}}
             // End white king is safe.
         } else {
@@ -1028,16 +1028,16 @@ public class TheEngine {
                 if (theBoard[z-8]=='K') {
                     return false;}
                 if (g > 0) {
-                    if (theBoard[z-9]=='K') {
+                    if (theBoard[z-9]=='K' || theBoard[z-9]=='P') {
                         return false;}}
                 if (g < 7) {
-                    if (theBoard[z-7]=='K') {
+                    if (theBoard[z-7]=='K' || theBoard[z-7]=='P') {
                         return false;}}}
             if (g > 0) {
-                if (theBoard[z-1]=='K' || theBoard[z-1]=='P') {
+                if (theBoard[z-1]=='K') {
                     return false;}}
             if (g < 7) {
-                if (theBoard[z+1]=='K' || theBoard[z+1]=='P') {
+                if (theBoard[z+1]=='K') {
                     return false;}}
             // End black king is safe.
         }
