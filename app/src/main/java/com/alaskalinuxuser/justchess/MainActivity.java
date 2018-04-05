@@ -81,7 +81,39 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                moveOptions="";
+                if (!wTurn){
+                    moveOptions= terminal("suggestMove,black");
+                } else {
+                    moveOptions= terminal("suggestMove,white");
+                }
+
+                try {
+                    if (moveOptions.equalsIgnoreCase("K-0-0R,")) {
+                        chessImage[6].setBackgroundResource(R.drawable.suggested);;
+                    } else if (moveOptions.equalsIgnoreCase("K0-0-0,")) {
+                        chessImage[2].setBackgroundResource(R.drawable.suggested);;
+                    } else if (moveOptions.equalsIgnoreCase("k-0-0r,")) {
+                        chessImage[62].setBackgroundResource(R.drawable.suggested);;
+                    } else if (moveOptions.equalsIgnoreCase("k0-0-0,")) {
+                        chessImage[58].setBackgroundResource(R.drawable.suggested);;
+                    } else {
+                        String temp = String.valueOf(moveOptions.charAt(3)) +
+                                String.valueOf(moveOptions.charAt(4));
+                        int highlightThis = Integer.parseInt(temp);
+                        chessImage[highlightThis].setBackgroundResource(R.drawable.suggested);
+                        temp = String.valueOf(moveOptions.charAt(1)) +
+                                String.valueOf(moveOptions.charAt(2));
+                        highlightThis = Integer.parseInt(temp);
+                        chessImage[highlightThis].setBackgroundResource(R.drawable.suggested);
+                    }
+
+                } catch (Exception e) {
+                    // Do nothing.
+                    Log.i("WJH", e.toString());
+                }
+
+                Snackbar.make(view, "JustChessEngine suggests: "+ moveOptions, Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
