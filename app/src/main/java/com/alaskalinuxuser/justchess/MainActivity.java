@@ -288,44 +288,13 @@ public class MainActivity extends AppCompatActivity {
             String myMove = tryMove + played + String.valueOf(theBoard[number]);
             Log.i("WJH", myMove + "," + String.valueOf(minusNum) + "," + String.valueOf(plusNum));
 
-            if (myMove.equalsIgnoreCase("K0406*")){myMove="K-0-0R";}
-            else if (myMove.equalsIgnoreCase("K0402*")){myMove="K0-0-0";}
-            else if (myMove.equalsIgnoreCase("k6062*")){myMove="k-0-0r";}
-            else if (myMove.equalsIgnoreCase("k6058*")){myMove="k0-0-0";}
-
-
-            if (myMove.contains("P48")||myMove.contains("P49")||myMove.contains("P50")||
-                    myMove.contains("P51")||myMove.contains("P52")||myMove.contains("P53")||
-                    myMove.contains("P54")||myMove.contains("P55")) {
-                if ( minusNum == 8) {
-                    myMove = "Pu" + promoteToW + played + String.valueOf(theBoard[number]);
-                } else if (minusNum == 9) {
-                    myMove = "Pr" + promoteToW + played + String.valueOf(theBoard[number]);
-                } else if (minusNum == 7) {
-                    myMove = "Pl" + promoteToW + played + String.valueOf(theBoard[number]);
-                }
-            }
-
-            if (myMove.contains("p08")||myMove.contains("p09")||myMove.contains("p10")||
-                    myMove.contains("p11")||myMove.contains("p12")||myMove.contains("p13")||
-                    myMove.contains("p14")||myMove.contains("p15")) {
-                if ( plusNum == 8) {
-                    myMove = "pu" + getPromoteToB + played + String.valueOf(theBoard[number]);
-                } else if (plusNum == 7) {
-                    myMove = "pr" + getPromoteToB + played + String.valueOf(theBoard[number]);
-                } else if (plusNum == 9) {
-                    myMove = "pl" + getPromoteToB + played + String.valueOf(theBoard[number]);
-                }
-            }
-
-
-            Log.i("WJH", myMove);
             moveOptions= terminal("availMoves,"+String.valueOf(wTurn));
 
             String[] separated = moveOptions.split(",");
 
             if (Arrays.asList(separated).contains(myMove)) {
 
+                Log.i("WJH", myMove);
                 String query = terminal("myMove,"+myMove);
                 Log.i("WJH", query);
                 drawBoardPieces();
@@ -336,6 +305,77 @@ public class MainActivity extends AppCompatActivity {
                     getNextMove();
                 }
 
+            } else {
+
+                if (myMove.equalsIgnoreCase("K0406*")) {
+                    myMove = "K-0-0R";
+                } else if (myMove.equalsIgnoreCase("K0402*")) {
+                    myMove = "K0-0-0";
+                } else if (myMove.equalsIgnoreCase("k6062*")) {
+                    myMove = "k-0-0r";
+                } else if (myMove.equalsIgnoreCase("k6058*")) {
+                    myMove = "k0-0-0";
+                }
+
+
+                if (myMove.contains("P48") || myMove.contains("P49") || myMove.contains("P50") ||
+                        myMove.contains("P51") || myMove.contains("P52") || myMove.contains("P53") ||
+                        myMove.contains("P54") || myMove.contains("P55")) {
+                    if (minusNum == 8) {
+                        myMove = "Pu" + promoteToW + played + String.valueOf(theBoard[number]);
+                    } else if (minusNum == 9) {
+                        myMove = "Pr" + promoteToW + played + String.valueOf(theBoard[number]);
+                    } else if (minusNum == 7) {
+                        myMove = "Pl" + promoteToW + played + String.valueOf(theBoard[number]);
+                    }
+                }
+
+                if (myMove.contains("p08") || myMove.contains("p09") || myMove.contains("p10") ||
+                        myMove.contains("p11") || myMove.contains("p12") || myMove.contains("p13") ||
+                        myMove.contains("p14") || myMove.contains("p15")) {
+                    if (plusNum == 8) {
+                        myMove = "pu" + getPromoteToB + played + String.valueOf(theBoard[number]);
+                    } else if (plusNum == 7) {
+                        myMove = "pr" + getPromoteToB + played + String.valueOf(theBoard[number]);
+                    } else if (plusNum == 9) {
+                        myMove = "pl" + getPromoteToB + played + String.valueOf(theBoard[number]);
+                    }
+                }
+
+                if (myMove.contains("P32") || myMove.contains("P33") || myMove.contains("P34") ||
+                        myMove.contains("P35") || myMove.contains("P36") || myMove.contains("P37") ||
+                        myMove.contains("P38") || myMove.contains("P39")) {
+                    if (minusNum == 9) {
+                        myMove = "PER" + played + "p";
+                    } else if (minusNum == 7) {
+                        myMove = "PEL" + played + "p";
+                    }
+                }
+
+                if (myMove.contains("p24") || myMove.contains("p25") || myMove.contains("p26") ||
+                        myMove.contains("p27") || myMove.contains("p28") || myMove.contains("p29") ||
+                        myMove.contains("p30") || myMove.contains("p31")) {
+                    if (plusNum == 7) {
+                        myMove = "per" + played + "P";
+                    } else if (plusNum == 9) {
+                        myMove = "pel" + played + "P";
+                    }
+                }
+
+                if (Arrays.asList(separated).contains(myMove)) {
+
+                    Log.i("WJH", myMove);
+                    String query = terminal("myMove," + myMove);
+                    Log.i("WJH", query);
+                    drawBoardPieces();
+                    wTurn = !wTurn;
+
+                    if (!pPass) {
+                        // Since we moved, if it is not pass and play, make the computer move.
+                        getNextMove();
+                    }
+
+                }
             }
             tryMove = "";
             myMove = "";

@@ -408,7 +408,7 @@ public class TheEngine {
         if (move.length() < 6 || move.charAt(0) == '-') {
             Log.i("WJH", "Checkmate or stalemate. " + move);
             checkStaleMate = true;
-        } else { // White's turn moves....
+        } else { //  turn moves....
             promote = move.charAt(2);
             piece = move.charAt(0);
             if ("k-0-0r".equals(move)) {
@@ -441,14 +441,14 @@ public class TheEngine {
                     if (move.charAt(1)=='e') {
                         if (move.charAt(2)=='l') {
                             to = Integer.parseInt(move.substring(3, 5));
-                            from = to + 7;
+                            from = to + 9;
                             other = to + 8;
                             theBoard[to] = 'p';
                             theBoard[from] = '*';
                             theBoard[other] = '*';
                         } else if (move.charAt(2)=='r') {
                             to = Integer.parseInt(move.substring(3, 5));
-                            from = to + 9;
+                            from = to + 7;
                             other = to + 8;
                             theBoard[to] = 'p';
                             theBoard[from] = '*';
@@ -549,7 +549,7 @@ public class TheEngine {
         if (move.length() < 6 || move.charAt(0) == '-') {
             Log.i("WJH", "Checkmate or stalemate. " + move);
             checkStaleMate = true;
-        } else { // undo White's turn moves....
+        } else { // undo turn moves....
             piece = move.charAt(0);
             take = move.charAt(5);
             if ("k-0-0r".equals(move)) {
@@ -1599,29 +1599,31 @@ public class TheEngine {
         } else if (h == 3) {
             // The rule of en passant...
             if (lastMove.charAt(0) == 'P') {
-                /*int tempTo = Integer.parseInt(lastMove.substring(3, 5));
+                int tempTo = Integer.parseInt(lastMove.substring(3, 5));
                 int tempFm = Integer.parseInt(lastMove.substring(1, 3));
                 if (tempFm / 8 == 1 && tempTo / 8 == 3) { // They did a double step.
                     if (tempTo == i + 1) { // They are on your right.
-                        moveSquare = String.valueOf(theBoard[i - 7]);
                         theBoard[i - 7] = 'p';
                         theBoard[i] = '*';
+                        theBoard[i + 1] = '*';
                         if (isKingSafe()) {
                             list = list + "per" + String.valueOf(i - 7) + "P,";
                         }
-                        theBoard[i - 7] = moveSquare.charAt(0);
+                        theBoard[i + 1] = 'P';
+                        theBoard[i - 9] = '*';
                         theBoard[i] = 'p';
                     } else if (tempTo == i - 1) { // They are on your left.
-                        moveSquare = String.valueOf(theBoard[i - 9]);
                         theBoard[i - 9] = 'p';
                         theBoard[i] = '*';
+                        theBoard[i - 1] = '*';
                         if (isKingSafe()) {
                             list = list + "pel" + String.valueOf(i - 9) + "P,";
                         }
-                        theBoard[i - 9] = moveSquare.charAt(0);
+                        theBoard[i - 1] = 'P';
+                        theBoard[i - 9] = '*';
                         theBoard[i] = 'p';
                     }
-                } */ // Temporary removal of en passant.
+                }
             } // End en passant....
         } else if (h == 1) {
             // The standard catch for moving one space forward.
@@ -2246,27 +2248,60 @@ public class TheEngine {
                 theseMoves.add(j);}
         } else if (h == 4) {
             // The rule of en passant...
+            /* // The rule of en passant...
+            if (lastMove.charAt(0) == 'P') {
+                int tempTo = Integer.parseInt(lastMove.substring(3, 5));
+                int tempFm = Integer.parseInt(lastMove.substring(1, 3));
+                if (tempFm / 8 == 1 && tempTo / 8 == 3) { // They did a double step.
+                    if (tempTo == i + 1) { // They are on your right.
+                        theBoard[i - 7] = 'p';
+                        theBoard[i] = '*';
+                        theBoard[i + 1] = '*';
+                        if (isKingSafe()) {
+                            list = list + "per" + String.valueOf(i - 7) + "P,";
+                        }
+                        theBoard[i + 1] = 'P';
+                        theBoard[i - 9] = '*';
+                        theBoard[i] = 'p';
+                    } else if (tempTo == i - 1) { // They are on your left.
+                        theBoard[i - 9] = 'p';
+                        theBoard[i] = '*';
+                        theBoard[i - 1] = '*';
+                        if (isKingSafe()) {
+                            list = list + "pel" + String.valueOf(i - 9) + "P,";
+                        }
+                        theBoard[i - 1] = 'P';
+                        theBoard[i - 9] = '*';
+                        theBoard[i] = 'p';
+                    }
+                }
+            } // End en passant....*/
+
             if (lastMove.charAt(0)=='p') {
-                /*int tempTo = Integer.parseInt(lastMove.substring(3,5));
+                int tempTo = Integer.parseInt(lastMove.substring(3,5));
                 int tempFm = Integer.parseInt(lastMove.substring(1,3));
                 if (tempFm / 8 == 6 && tempTo / 8 == 4) { // The did a double step.
                     if (tempTo == i + 1) { // They are on your right.
                         moveSquare = String.valueOf(theBoard[i+9]);
                         theBoard[i+9] = 'P';
                         theBoard[i] = '*';
+                        theBoard[i + 1] = '*';
                         if (isKingSafe()) {
                             list = list + "PER" + String.valueOf(i + 9) + "p,";}
-                        theBoard[i+9] = moveSquare.charAt(0);
+                        theBoard[i+9] = '*';
+                        theBoard[i + 1] = 'p';
                         theBoard[i] = 'P';
                     } else if (tempTo == i - 1) { // They are on your left.
                         moveSquare = String.valueOf(theBoard[i+7]);
                         theBoard[i+7] = 'P';
                         theBoard[i] = '*';
+                        theBoard[i - 1] = '*';
                         if (isKingSafe()) {
                             list = list + "PEL" + String.valueOf(i + 7) + "p,";}
-                        theBoard[i+7] = moveSquare.charAt(0);
+                        theBoard[i+7] = '*';
+                        theBoard[i - 1] = 'p';
                         theBoard[i] = 'P';
-                    }}} // End en passant....  */ // Temporary removal of en passant.
+                    }} // End en passant....  // Temporary removal of en passant.
             }} else if (h == 6) {
             // The standard catch for moving one space forward.
             k = i + 8;
