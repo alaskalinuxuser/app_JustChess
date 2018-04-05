@@ -89,13 +89,13 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 try {
-                    if (moveOptions.equalsIgnoreCase("K-0-0R,")) {
+                    if (moveOptions.equals("K-0-0R,")) {
                         chessImage[6].setBackgroundResource(R.drawable.suggested);;
-                    } else if (moveOptions.equalsIgnoreCase("K0-0-0,")) {
+                    } else if (moveOptions.equals("K0-0-0,")) {
                         chessImage[2].setBackgroundResource(R.drawable.suggested);;
-                    } else if (moveOptions.equalsIgnoreCase("k-0-0r,")) {
+                    } else if (moveOptions.equals("k-0-0r,")) {
                         chessImage[62].setBackgroundResource(R.drawable.suggested);;
-                    } else if (moveOptions.equalsIgnoreCase("k0-0-0,")) {
+                    } else if (moveOptions.equals("k0-0-0,")) {
                         chessImage[58].setBackgroundResource(R.drawable.suggested);;
                     } else {
                         String temp = String.valueOf(moveOptions.charAt(3)) +
@@ -401,13 +401,13 @@ public class MainActivity extends AppCompatActivity {
                     for (int i=0; i<stringArray.length; i++) {
 
                         String temp = stringArray[i];
-                        if (temp.equalsIgnoreCase("K-0-0R")) {
+                        if (temp.equals("K-0-0R")) {
                             chessImage[6].setBackgroundResource(R.drawable.highlight);;
-                        } else if (temp.equalsIgnoreCase("K0-0-0")) {
+                        } else if (temp.equals("K0-0-0")) {
                             chessImage[2].setBackgroundResource(R.drawable.highlight);;
-                        } else if (temp.equalsIgnoreCase("k-0-0r")) {
+                        } else if (temp.equals("k-0-0r")) {
                             chessImage[62].setBackgroundResource(R.drawable.highlight);;
-                        } else if (temp.equalsIgnoreCase("k0-0-0")) {
+                        } else if (temp.equals("k0-0-0")) {
                             chessImage[58].setBackgroundResource(R.drawable.highlight);;
                         } else {
                             temp = String.valueOf(stringArray[i].charAt(3)) +

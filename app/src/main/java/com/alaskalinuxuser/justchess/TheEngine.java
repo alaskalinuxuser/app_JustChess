@@ -435,6 +435,30 @@ public class TheEngine {
                 theBoard[3] = 'R';
                 theBoard[0] = '*';
                 wKingNeverMove++;
+            } else if ("k-0-0r,".equals(move)) {
+                theBoard[60] = '*';
+                theBoard[63] = '*';
+                theBoard[62] = 'k';
+                theBoard[61] = 'r';
+            } else if ("k0-0-0,".equals(move)) {
+                theBoard[60] = '*';
+                theBoard[56] = '*';
+                theBoard[58] = 'k';
+                theBoard[59] = 'r';
+                theBoard[57] = '*';
+            } else if ("K-0-0R,".equals(move)) {
+                theBoard[7] = '*';
+                theBoard[6] = 'K';
+                theBoard[5] = 'R';
+                theBoard[4] = '*';
+                wKingNeverMove++;
+            } else if ("K0-0-0,".equals(move)) {
+                theBoard[4] = '*';
+                theBoard[1] = '*';
+                theBoard[2] = 'K';
+                theBoard[3] = 'R';
+                theBoard[0] = '*';
+                wKingNeverMove++;
             } else {
                 if (piece == 'p') {
                     // check for Pawn special moves....
@@ -572,6 +596,32 @@ public class TheEngine {
                 theBoard[7] = 'R';
                 wKingNeverMove--;
             } else if ("K0-0-0".equals(move)) {
+                theBoard[1] = '*';
+                theBoard[2] = '*';
+                theBoard[4] = 'K';
+                theBoard[0] = 'R';
+                theBoard[3] = '*';
+                wKingNeverMove--;
+            } else if ("k-0-0r,".equals(move)) {
+                theBoard[60] = 'k';
+                theBoard[63] = 'r';
+                theBoard[61] = '*';
+                theBoard[62] = '*';
+                bKingNeverMove--;
+            } else if ("k0-0-0,".equals(move)) {
+                theBoard[60] = 'k';
+                theBoard[56] = 'r';
+                theBoard[58] = '*';
+                theBoard[59] = '*';
+                theBoard[57] = '*';
+                bKingNeverMove--;
+            } else if ("K-0-0R,".equals(move)) {
+                theBoard[5] = '*';
+                theBoard[6] = '*';
+                theBoard[4] = 'K';
+                theBoard[7] = 'R';
+                wKingNeverMove--;
+            } else if ("K0-0-0,".equals(move)) {
                 theBoard[1] = '*';
                 theBoard[2] = '*';
                 theBoard[4] = 'K';
