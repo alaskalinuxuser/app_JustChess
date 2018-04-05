@@ -23,6 +23,17 @@ public class TheUserInterface {
     public static void drawBoardPieces() {
 
         for (int i=0; i<64; i++) {
+            chessImage[i].setBackgroundResource(R.drawable.dark);
+            if (i==1 || i==3 || i==5 || i==7 ||
+                    i==8 || i==10 || i==12 || i==14 ||
+                    i==17 || i==19 || i==21 || i==23 ||
+                    i==24 || i==26 || i==28 || i==30 ||
+                    i==33 || i==35 || i==37 || i==39 ||
+                    i==40 || i==42 || i==44 || i==46 ||
+                    i==49 || i==51 || i==53 || i==55 ||
+                    i==56 || i==58 || i==60 || i==62) {
+                chessImage[i].setBackgroundResource(R.drawable.light);
+            }
 
             switch (theBoard[i]) {
                 case '*': chessImage[i].setImageResource(R.drawable.empty);

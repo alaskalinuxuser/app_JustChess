@@ -18,23 +18,6 @@ android:gravity="center"
 android:layout_margin="30dp">
 
 <Button
-    android:id="@+id/nextMoveButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:onClick="buttonNextMove"
-    android:text="Move"
-    tools:layout_editor_absoluteX="148dp"
-    tools:layout_editor_absoluteY="130dp" />
-
-<TextView
-    android:id="@+id/timeText"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:text="time" />
-
-<Button
     android:id="@+id/resetButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -698,34 +681,10 @@ android:layout_height="wrap_content"
 android:gravity="center"
 android:orientation="horizontal">
 
-<Button
-    android:id="@+id/plusB"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:onClick="plyAdjustPlus"
-    android:text="+" />
 
-<TextView
-    android:id="@+id/plyNum"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="TextView" />
-
-<Button
-    android:id="@+id/minusB"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:onClick="plyAdjustMinus"
-    android:text="-" />
 </LinearLayout>
 
-<TextView
-android:id="@+id/moveChoiceText"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_margin="5dp"
-android:gravity="center"
-android:text="TextView" />
+
 
     </LinearLayout>
 

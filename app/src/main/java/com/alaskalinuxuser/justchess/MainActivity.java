@@ -63,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
     boolean wTurn, firstClick;
     String tryMove;
 
-    static Button nextMoveB,pB,mB;
-    static TextView pN, tVms, mCtv;
     static String moveOptions;
     static long startTime, stopTime;
     static int searchDepth, firstNum;
@@ -88,33 +86,10 @@ public class MainActivity extends AppCompatActivity {
         firstClick = false;
 
         moveOptions = "Move Options";
-        pB = (Button)findViewById(R.id.plusB);
-        mB = (Button)findViewById(R.id.minusB);
-        pN = (TextView)findViewById(R.id.plyNum);
-        tVms = (TextView)findViewById(R.id.timeText);
-        mCtv = (TextView)findViewById(R.id.moveChoiceText);
-
-        mCtv.setText(moveOptions);
-
-        pN.setText(String.valueOf(searchDepth));
-
-        nextMoveB = (Button)findViewById(R.id.nextMoveButton);
 
         // Declare all of our image views programatically.
         for (int i=0; i<64; i++) {
             chessImage[i]=(ImageView)findViewById(imageViews[i]);
-            chessImage[i].setBackgroundResource(R.drawable.dark);
-
-            if (i==1 || i==3 || i==5 || i==7 ||
-                    i==8 || i==10 || i==12 || i==14 ||
-                    i==17 || i==19 || i==21 || i==23 ||
-                    i==24 || i==26 || i==28 || i==30 ||
-                    i==33 || i==35 || i==37 || i==39 ||
-                    i==40 || i==42 || i==44 || i==46 ||
-                    i==49 || i==51 || i==53 || i==55 ||
-                    i==56 || i==58 || i==60 || i==62) {
-                chessImage[i].setBackgroundResource(R.drawable.light);
-            }
         } // checker board.
 
         //Start a new game.
@@ -198,9 +173,6 @@ public class MainActivity extends AppCompatActivity {
             // draw the board.
             drawBoardPieces();
             // rename the move button.
-            nextMoveB.setText("Move");
-            tVms.setText(String.valueOf(stopTime-startTime) + " ms");
-            mCtv.setText(moveOptions);
         } else {
             engineStrength=2;
             getNextMove();
@@ -209,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonNextMove (View view) {
 
-        nextMoveB.setText("Thinking...");
         moveOptions= terminal("availMoves,"+String.valueOf(wTurn));
 
         /*
@@ -379,16 +350,41 @@ public class MainActivity extends AppCompatActivity {
             }
             tryMove = "";
             myMove = "";
-            mCtv.setText(moveOptions);
+            drawBoardPieces();
 
         } else {
             firstNum = number;
-            firstClick = true;
-            tryMove = String.valueOf(theBoard[number]) + played;
-            Log.i("WJH", tryMove);
-            String query = terminal("pieceMoves,"+ String.valueOf(theBoard[number]) +
-                    "," + played);
-            mCtv.setText(query);
+            try {
+                chessImage[firstNum].setBackgroundResource(R.drawable.highlight);
+                firstClick = true;
+                tryMove = String.valueOf(theBoard[number]) + played;
+                Log.i("WJH", tryMove);
+                String query = terminal("pieceMoves,"+ String.valueOf(theBoard[number]) +
+                        "," + played);
+                String[] stringArray = query.split(",");
+                if (stringArray.length > 0) {
+                    for (int i=0; i<stringArray.length; i++) {
+
+                        String temp = stringArray[i];
+                        if (temp.equalsIgnoreCase("K-0-0R")) {
+                            chessImage[6].setBackgroundResource(R.drawable.highlight);;
+                        } else if (temp.equalsIgnoreCase("K0-0-0")) {
+                            chessImage[2].setBackgroundResource(R.drawable.highlight);;
+                        } else if (temp.equalsIgnoreCase("k-0-0r")) {
+                            chessImage[62].setBackgroundResource(R.drawable.highlight);;
+                        } else if (temp.equalsIgnoreCase("k0-0-0")) {
+                            chessImage[58].setBackgroundResource(R.drawable.highlight);;
+                        } else {
+                            temp = String.valueOf(stringArray[i].charAt(3)) +
+                                    String.valueOf(stringArray[i].charAt(4));
+                            int highlightThis = Integer.parseInt(temp);
+                            chessImage[highlightThis].setBackgroundResource(R.drawable.highlight);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                // Do nothing.
+            }
         }
 
     } // End clicked piece.
@@ -396,14 +392,12 @@ public class MainActivity extends AppCompatActivity {
     public void plyAdjustPlus(View view) {
 
         engineStrength++;
-        pN.setText(String.valueOf(engineStrength));
 
     } // End ply plus.
 
     public void plyAdjustMinus(View view) {
 
         engineStrength--;
-        pN.setText(String.valueOf(engineStrength));
 
     } // end ply minus.
 
@@ -411,10 +405,7 @@ public class MainActivity extends AppCompatActivity {
         // Call for a new game and redraw the board.
         terminal("newGame");
         wTurn = true;
-        pN.setText(String.valueOf(engineStrength));
         drawBoardPieces();
-        nextMoveB.setText("Move");
-        mCtv.setText(moveOptions);
     } // End reset game.
 
 } // End main.
