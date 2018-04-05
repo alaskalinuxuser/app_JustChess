@@ -4,687 +4,687 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/knpwn"
     android:gravity="top|center"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.alaskalinuxuser.justchess.MainActivity"
     tools:showIn="@layout/activity_main">
 
-<LinearLayout
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:orientation="horizontal"
-android:gravity="center"
-android:layout_margin="30dp">
-
-<Button
-    android:id="@+id/resetButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:onClick="resetGame"
-    android:text="Reset" />
-
-</LinearLayout>
-
-<GridLayout
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:columnCount="8"
-android:rowCount="8">
-
-<ImageView
-    android:id="@+id/p56"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="0"
-    android:onClick="moveablePiece"
-    android:rowCount="0"
-    android:tag="56" />
-
-<ImageView
-    android:id="@+id/p57"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="1"
-    android:onClick="moveablePiece"
-    android:rowCount="0"
-    android:tag="57" />
-
-<ImageView
-    android:id="@+id/p58"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="2"
-    android:onClick="moveablePiece"
-    android:rowCount="0"
-    android:tag="58" />
-
-<ImageView
-    android:id="@+id/p59"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="3"
-    android:onClick="moveablePiece"
-    android:rowCount="0"
-    android:tag="59" />
-
-<ImageView
-    android:id="@+id/p60"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="4"
-    android:onClick="moveablePiece"
-    android:rowCount="0"
-    android:tag="60" />
-
-<ImageView
-    android:id="@+id/p61"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="5"
-    android:onClick="moveablePiece"
-    android:rowCount="0"
-    android:tag="61" />
-
-<ImageView
-    android:id="@+id/p62"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="6"
-    android:onClick="moveablePiece"
-    android:rowCount="0"
-    android:tag="62" />
-
-<ImageView
-    android:id="@+id/p63"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="7"
-    android:onClick="moveablePiece"
-    android:rowCount="0"
-    android:tag="63" />
-
-<ImageView
-    android:id="@+id/p48"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="0"
-    android:onClick="moveablePiece"
-    android:rowCount="1"
-    android:tag="48" />
-
-<ImageView
-    android:id="@+id/p49"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="1"
-    android:onClick="moveablePiece"
-    android:rowCount="1"
-    android:tag="49" />
-
-<ImageView
-    android:id="@+id/p50"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="2"
-    android:onClick="moveablePiece"
-    android:rowCount="1"
-    android:tag="50" />
-
-<ImageView
-    android:id="@+id/p51"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="3"
-    android:onClick="moveablePiece"
-    android:rowCount="1"
-    android:tag="51" />
-
-<ImageView
-    android:id="@+id/p52"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="4"
-    android:onClick="moveablePiece"
-    android:rowCount="1"
-    android:tag="52" />
-
-<ImageView
-    android:id="@+id/p53"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="5"
-    android:onClick="moveablePiece"
-    android:rowCount="1"
-    android:tag="53" />
-
-<ImageView
-    android:id="@+id/p54"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="6"
-    android:onClick="moveablePiece"
-    android:rowCount="1"
-    android:tag="54" />
-
-<ImageView
-    android:id="@+id/p55"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="7"
-    android:onClick="moveablePiece"
-    android:rowCount="1"
-    android:tag="55" />
-
-<ImageView
-    android:id="@+id/p40"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="0"
-    android:onClick="moveablePiece"
-    android:rowCount="2"
-    android:tag="40" />
-
-<ImageView
-    android:id="@+id/p41"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="1"
-    android:onClick="moveablePiece"
-    android:rowCount="2"
-    android:tag="41" />
-
-<ImageView
-    android:id="@+id/p42"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="2"
-    android:onClick="moveablePiece"
-    android:rowCount="2"
-    android:tag="42" />
-
-<ImageView
-    android:id="@+id/p43"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="3"
-    android:onClick="moveablePiece"
-    android:rowCount="2"
-    android:tag="43" />
-
-<ImageView
-    android:id="@+id/p44"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="4"
-    android:onClick="moveablePiece"
-    android:rowCount="2"
-    android:tag="44" />
-
-<ImageView
-    android:id="@+id/p45"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="5"
-    android:onClick="moveablePiece"
-    android:rowCount="2"
-    android:tag="45" />
-
-<ImageView
-    android:id="@+id/p46"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="6"
-    android:onClick="moveablePiece"
-    android:rowCount="2"
-    android:tag="46" />
-
-<ImageView
-    android:id="@+id/p47"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="7"
-    android:onClick="moveablePiece"
-    android:rowCount="2"
-    android:tag="47" />
-
-<ImageView
-    android:id="@+id/p32"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="0"
-    android:onClick="moveablePiece"
-    android:rowCount="3"
-    android:tag="32" />
-
-<ImageView
-    android:id="@+id/p33"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="1"
-    android:onClick="moveablePiece"
-    android:rowCount="3"
-    android:tag="33" />
-
-<ImageView
-    android:id="@+id/p34"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="2"
-    android:onClick="moveablePiece"
-    android:rowCount="3"
-    android:tag="34" />
-
-<ImageView
-    android:id="@+id/p35"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="3"
-    android:onClick="moveablePiece"
-    android:rowCount="3"
-    android:tag="35" />
-
-<ImageView
-    android:id="@+id/p36"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="4"
-    android:onClick="moveablePiece"
-    android:rowCount="3"
-    android:tag="36" />
-
-<ImageView
-    android:id="@+id/p37"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="5"
-    android:onClick="moveablePiece"
-    android:rowCount="3"
-    android:tag="37" />
-
-<ImageView
-    android:id="@+id/p38"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="6"
-    android:onClick="moveablePiece"
-    android:rowCount="3"
-    android:tag="38" />
-
-<ImageView
-    android:id="@+id/p39"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="7"
-    android:onClick="moveablePiece"
-    android:rowCount="3"
-    android:tag="39" />
-
-<ImageView
-    android:id="@+id/p24"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="0"
-    android:onClick="moveablePiece"
-    android:rowCount="4"
-    android:tag="24" />
-
-<ImageView
-    android:id="@+id/p25"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="1"
-    android:onClick="moveablePiece"
-    android:rowCount="4"
-    android:tag="25" />
-
-<ImageView
-    android:id="@+id/p26"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="2"
-    android:onClick="moveablePiece"
-    android:rowCount="4"
-    android:tag="26" />
-
-<ImageView
-    android:id="@+id/p27"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="3"
-    android:onClick="moveablePiece"
-    android:rowCount="4"
-    android:tag="27" />
-
-<ImageView
-    android:id="@+id/p28"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="4"
-    android:onClick="moveablePiece"
-    android:rowCount="4"
-    android:tag="28" />
-
-<ImageView
-    android:id="@+id/p29"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="5"
-    android:onClick="moveablePiece"
-    android:rowCount="4"
-    android:tag="29" />
-
-<ImageView
-    android:id="@+id/p30"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="6"
-    android:onClick="moveablePiece"
-    android:rowCount="4"
-    android:tag="30" />
-
-<ImageView
-    android:id="@+id/p31"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="7"
-    android:onClick="moveablePiece"
-    android:rowCount="4"
-    android:tag="31" />
-
-<ImageView
-    android:id="@+id/p16"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="0"
-    android:onClick="moveablePiece"
-    android:rowCount="5"
-    android:tag="16" />
-
-<ImageView
-    android:id="@+id/p17"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="1"
-    android:onClick="moveablePiece"
-    android:rowCount="5"
-    android:tag="17" />
-
-<ImageView
-    android:id="@+id/p18"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="2"
-    android:onClick="moveablePiece"
-    android:rowCount="5"
-    android:tag="18" />
-
-<ImageView
-    android:id="@+id/p19"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="3"
-    android:onClick="moveablePiece"
-    android:rowCount="5"
-    android:tag="19" />
-
-<ImageView
-    android:id="@+id/p20"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="4"
-    android:onClick="moveablePiece"
-    android:rowCount="5"
-    android:tag="20" />
-
-<ImageView
-    android:id="@+id/p21"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="5"
-    android:onClick="moveablePiece"
-    android:rowCount="5"
-    android:tag="21" />
-
-<ImageView
-    android:id="@+id/p22"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="6"
-    android:onClick="moveablePiece"
-    android:rowCount="5"
-    android:tag="22" />
-
-<ImageView
-    android:id="@+id/p23"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="7"
-    android:onClick="moveablePiece"
-    android:rowCount="5"
-    android:tag="23" />
-
-<ImageView
-    android:id="@+id/p8"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="0"
-    android:onClick="moveablePiece"
-    android:rowCount="6"
-    android:tag="8" />
-
-<ImageView
-    android:id="@+id/p9"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="1"
-    android:onClick="moveablePiece"
-    android:rowCount="6"
-    android:tag="9" />
-
-<ImageView
-    android:id="@+id/p10"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="2"
-    android:onClick="moveablePiece"
-    android:rowCount="6"
-    android:tag="10" />
-
-<ImageView
-    android:id="@+id/p11"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="3"
-    android:onClick="moveablePiece"
-    android:rowCount="6"
-    android:tag="11" />
-
-<ImageView
-    android:id="@+id/p12"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="4"
-    android:onClick="moveablePiece"
-    android:rowCount="6"
-    android:tag="12" />
-
-<ImageView
-    android:id="@+id/p13"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="5"
-    android:onClick="moveablePiece"
-    android:rowCount="6"
-    android:tag="13" />
-
-<ImageView
-    android:id="@+id/p14"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="6"
-    android:onClick="moveablePiece"
-    android:rowCount="6"
-    android:tag="14" />
-
-<ImageView
-    android:id="@+id/p15"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="7"
-    android:onClick="moveablePiece"
-    android:rowCount="6"
-    android:tag="15" />
-
-<ImageView
-    android:id="@+id/p0"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="0"
-    android:onClick="moveablePiece"
-    android:rowCount="7"
-    android:tag="0" />
-
-<ImageView
-    android:id="@+id/p1"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="1"
-    android:onClick="moveablePiece"
-    android:rowCount="7"
-    android:tag="1" />
-
-<ImageView
-    android:id="@+id/p2"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="2"
-    android:onClick="moveablePiece"
-    android:rowCount="7"
-    android:tag="2" />
-
-<ImageView
-    android:id="@+id/p3"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="3"
-    android:onClick="moveablePiece"
-    android:rowCount="7"
-    android:tag="3" />
-
-<ImageView
-    android:id="@+id/p4"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="4"
-    android:onClick="moveablePiece"
-    android:rowCount="7"
-    android:tag="4" />
-
-<ImageView
-    android:id="@+id/p5"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="5"
-    android:onClick="moveablePiece"
-    android:rowCount="7"
-    android:tag="5" />
-
-<ImageView
-    android:id="@+id/p6"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/dark"
-    android:columnCount="6"
-    android:onClick="moveablePiece"
-    android:rowCount="7"
-    android:tag="6" />
-
-<ImageView
-    android:id="@+id/p7"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/light"
-    android:columnCount="7"
-    android:onClick="moveablePiece"
-    android:rowCount="7"
-    android:tag="7" />
-
-</GridLayout>
-
-<LinearLayout
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:gravity="center"
-android:orientation="horizontal">
-
-
-</LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:onClick="resetGame"
+            android:text="@string/new_game" />
+
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="8"
+        android:rowCount="8">
+
+        <ImageView
+            android:id="@+id/p56"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="0"
+            android:onClick="moveablePiece"
+            android:rowCount="0"
+            android:tag="56" />
+
+        <ImageView
+            android:id="@+id/p57"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="1"
+            android:onClick="moveablePiece"
+            android:rowCount="0"
+            android:tag="57" />
+
+        <ImageView
+            android:id="@+id/p58"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="2"
+            android:onClick="moveablePiece"
+            android:rowCount="0"
+            android:tag="58" />
+
+        <ImageView
+            android:id="@+id/p59"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="3"
+            android:onClick="moveablePiece"
+            android:rowCount="0"
+            android:tag="59" />
+
+        <ImageView
+            android:id="@+id/p60"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="4"
+            android:onClick="moveablePiece"
+            android:rowCount="0"
+            android:tag="60" />
+
+        <ImageView
+            android:id="@+id/p61"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="5"
+            android:onClick="moveablePiece"
+            android:rowCount="0"
+            android:tag="61" />
+
+        <ImageView
+            android:id="@+id/p62"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="6"
+            android:onClick="moveablePiece"
+            android:rowCount="0"
+            android:tag="62" />
+
+        <ImageView
+            android:id="@+id/p63"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="7"
+            android:onClick="moveablePiece"
+            android:rowCount="0"
+            android:tag="63" />
+
+        <ImageView
+            android:id="@+id/p48"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="0"
+            android:onClick="moveablePiece"
+            android:rowCount="1"
+            android:tag="48" />
+
+        <ImageView
+            android:id="@+id/p49"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="1"
+            android:onClick="moveablePiece"
+            android:rowCount="1"
+            android:tag="49" />
+
+        <ImageView
+            android:id="@+id/p50"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="2"
+            android:onClick="moveablePiece"
+            android:rowCount="1"
+            android:tag="50" />
+
+        <ImageView
+            android:id="@+id/p51"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="3"
+            android:onClick="moveablePiece"
+            android:rowCount="1"
+            android:tag="51" />
+
+        <ImageView
+            android:id="@+id/p52"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="4"
+            android:onClick="moveablePiece"
+            android:rowCount="1"
+            android:tag="52" />
+
+        <ImageView
+            android:id="@+id/p53"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="5"
+            android:onClick="moveablePiece"
+            android:rowCount="1"
+            android:tag="53" />
+
+        <ImageView
+            android:id="@+id/p54"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="6"
+            android:onClick="moveablePiece"
+            android:rowCount="1"
+            android:tag="54" />
+
+        <ImageView
+            android:id="@+id/p55"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="7"
+            android:onClick="moveablePiece"
+            android:rowCount="1"
+            android:tag="55" />
+
+        <ImageView
+            android:id="@+id/p40"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="0"
+            android:onClick="moveablePiece"
+            android:rowCount="2"
+            android:tag="40" />
+
+        <ImageView
+            android:id="@+id/p41"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="1"
+            android:onClick="moveablePiece"
+            android:rowCount="2"
+            android:tag="41" />
+
+        <ImageView
+            android:id="@+id/p42"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="2"
+            android:onClick="moveablePiece"
+            android:rowCount="2"
+            android:tag="42" />
+
+        <ImageView
+            android:id="@+id/p43"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="3"
+            android:onClick="moveablePiece"
+            android:rowCount="2"
+            android:tag="43" />
+
+        <ImageView
+            android:id="@+id/p44"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="4"
+            android:onClick="moveablePiece"
+            android:rowCount="2"
+            android:tag="44" />
+
+        <ImageView
+            android:id="@+id/p45"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="5"
+            android:onClick="moveablePiece"
+            android:rowCount="2"
+            android:tag="45" />
+
+        <ImageView
+            android:id="@+id/p46"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="6"
+            android:onClick="moveablePiece"
+            android:rowCount="2"
+            android:tag="46" />
+
+        <ImageView
+            android:id="@+id/p47"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="7"
+            android:onClick="moveablePiece"
+            android:rowCount="2"
+            android:tag="47" />
+
+        <ImageView
+            android:id="@+id/p32"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="0"
+            android:onClick="moveablePiece"
+            android:rowCount="3"
+            android:tag="32" />
+
+        <ImageView
+            android:id="@+id/p33"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="1"
+            android:onClick="moveablePiece"
+            android:rowCount="3"
+            android:tag="33" />
+
+        <ImageView
+            android:id="@+id/p34"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="2"
+            android:onClick="moveablePiece"
+            android:rowCount="3"
+            android:tag="34" />
+
+        <ImageView
+            android:id="@+id/p35"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="3"
+            android:onClick="moveablePiece"
+            android:rowCount="3"
+            android:tag="35" />
+
+        <ImageView
+            android:id="@+id/p36"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="4"
+            android:onClick="moveablePiece"
+            android:rowCount="3"
+            android:tag="36" />
+
+        <ImageView
+            android:id="@+id/p37"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="5"
+            android:onClick="moveablePiece"
+            android:rowCount="3"
+            android:tag="37" />
+
+        <ImageView
+            android:id="@+id/p38"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="6"
+            android:onClick="moveablePiece"
+            android:rowCount="3"
+            android:tag="38" />
+
+        <ImageView
+            android:id="@+id/p39"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="7"
+            android:onClick="moveablePiece"
+            android:rowCount="3"
+            android:tag="39" />
+
+        <ImageView
+            android:id="@+id/p24"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="0"
+            android:onClick="moveablePiece"
+            android:rowCount="4"
+            android:tag="24" />
+
+        <ImageView
+            android:id="@+id/p25"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="1"
+            android:onClick="moveablePiece"
+            android:rowCount="4"
+            android:tag="25" />
+
+        <ImageView
+            android:id="@+id/p26"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="2"
+            android:onClick="moveablePiece"
+            android:rowCount="4"
+            android:tag="26" />
+
+        <ImageView
+            android:id="@+id/p27"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="3"
+            android:onClick="moveablePiece"
+            android:rowCount="4"
+            android:tag="27" />
+
+        <ImageView
+            android:id="@+id/p28"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="4"
+            android:onClick="moveablePiece"
+            android:rowCount="4"
+            android:tag="28" />
+
+        <ImageView
+            android:id="@+id/p29"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="5"
+            android:onClick="moveablePiece"
+            android:rowCount="4"
+            android:tag="29" />
+
+        <ImageView
+            android:id="@+id/p30"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="6"
+            android:onClick="moveablePiece"
+            android:rowCount="4"
+            android:tag="30" />
+
+        <ImageView
+            android:id="@+id/p31"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="7"
+            android:onClick="moveablePiece"
+            android:rowCount="4"
+            android:tag="31" />
+
+        <ImageView
+            android:id="@+id/p16"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="0"
+            android:onClick="moveablePiece"
+            android:rowCount="5"
+            android:tag="16" />
+
+        <ImageView
+            android:id="@+id/p17"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="1"
+            android:onClick="moveablePiece"
+            android:rowCount="5"
+            android:tag="17" />
+
+        <ImageView
+            android:id="@+id/p18"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="2"
+            android:onClick="moveablePiece"
+            android:rowCount="5"
+            android:tag="18" />
+
+        <ImageView
+            android:id="@+id/p19"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="3"
+            android:onClick="moveablePiece"
+            android:rowCount="5"
+            android:tag="19" />
+
+        <ImageView
+            android:id="@+id/p20"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="4"
+            android:onClick="moveablePiece"
+            android:rowCount="5"
+            android:tag="20" />
+
+        <ImageView
+            android:id="@+id/p21"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="5"
+            android:onClick="moveablePiece"
+            android:rowCount="5"
+            android:tag="21" />
+
+        <ImageView
+            android:id="@+id/p22"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="6"
+            android:onClick="moveablePiece"
+            android:rowCount="5"
+            android:tag="22" />
+
+        <ImageView
+            android:id="@+id/p23"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="7"
+            android:onClick="moveablePiece"
+            android:rowCount="5"
+            android:tag="23" />
+
+        <ImageView
+            android:id="@+id/p8"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="0"
+            android:onClick="moveablePiece"
+            android:rowCount="6"
+            android:tag="8" />
+
+        <ImageView
+            android:id="@+id/p9"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="1"
+            android:onClick="moveablePiece"
+            android:rowCount="6"
+            android:tag="9" />
+
+        <ImageView
+            android:id="@+id/p10"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="2"
+            android:onClick="moveablePiece"
+            android:rowCount="6"
+            android:tag="10" />
+
+        <ImageView
+            android:id="@+id/p11"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="3"
+            android:onClick="moveablePiece"
+            android:rowCount="6"
+            android:tag="11" />
+
+        <ImageView
+            android:id="@+id/p12"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="4"
+            android:onClick="moveablePiece"
+            android:rowCount="6"
+            android:tag="12" />
+
+        <ImageView
+            android:id="@+id/p13"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="5"
+            android:onClick="moveablePiece"
+            android:rowCount="6"
+            android:tag="13" />
+
+        <ImageView
+            android:id="@+id/p14"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="6"
+            android:onClick="moveablePiece"
+            android:rowCount="6"
+            android:tag="14" />
+
+        <ImageView
+            android:id="@+id/p15"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="7"
+            android:onClick="moveablePiece"
+            android:rowCount="6"
+            android:tag="15" />
+
+        <ImageView
+            android:id="@+id/p0"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="0"
+            android:onClick="moveablePiece"
+            android:rowCount="7"
+            android:tag="0" />
+
+        <ImageView
+            android:id="@+id/p1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="1"
+            android:onClick="moveablePiece"
+            android:rowCount="7"
+            android:tag="1" />
+
+        <ImageView
+            android:id="@+id/p2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="2"
+            android:onClick="moveablePiece"
+            android:rowCount="7"
+            android:tag="2" />
+
+        <ImageView
+            android:id="@+id/p3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="3"
+            android:onClick="moveablePiece"
+            android:rowCount="7"
+            android:tag="3" />
+
+        <ImageView
+            android:id="@+id/p4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="4"
+            android:onClick="moveablePiece"
+            android:rowCount="7"
+            android:tag="4" />
+
+        <ImageView
+            android:id="@+id/p5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="5"
+            android:onClick="moveablePiece"
+            android:rowCount="7"
+            android:tag="5" />
+
+        <ImageView
+            android:id="@+id/p6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/dark"
+            android:columnCount="6"
+            android:onClick="moveablePiece"
+            android:rowCount="7"
+            android:tag="6" />
+
+        <ImageView
+            android:id="@+id/p7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/light"
+            android:columnCount="7"
+            android:onClick="moveablePiece"
+            android:rowCount="7"
+            android:tag="7" />
+
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
 
 
     </LinearLayout>
+
+
+</LinearLayout>
 

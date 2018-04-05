@@ -15,6 +15,9 @@ package com.alaskalinuxuser.justchess;
 *   limitations under the License.
 */
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -403,9 +406,33 @@ public class MainActivity extends AppCompatActivity {
 
     public void resetGame(View view) {
         // Call for a new game and redraw the board.
-        terminal("newGame");
-        wTurn = true;
-        drawBoardPieces();
+
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setTitle("New Game?")
+                .setMessage(
+                        "Would you like to play a new game?")
+                .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        // Do nothing.
+
+                    }
+                })
+                .setNegativeButton("New Game", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        // First you define it.
+                        Intent myintent = new Intent(MainActivity.this, IntroActivity.class);
+                        myintent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        // Now you call it.
+                        startActivity(myintent);
+
+                    }
+                })
+                .show(); // Make sure you show your popup or it wont work very well!
     } // End reset game.
 
 } // End main.
