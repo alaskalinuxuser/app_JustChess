@@ -334,9 +334,9 @@ public class TheEngine {
         counter+=listLength/5;//1 point per valid move
         if (listLength==0) {//current side is in checkmate or stalemate
             if (!isKingSafe()) {//if checkmate
-                counter+=-200000;
+                counter+=-2000000;
             } else {//if stalemate
-                counter+=-150000; }} else {
+                counter+=-1500000; }} else {
             // Debugging only //Log.i("WJH", "movability Counter="+String.valueOf(counter));
             return counter;
         }return counter;} // Rate moveability....
@@ -385,18 +385,18 @@ public class TheEngine {
         int materialScore = 0;
         for (int i = 0; i < 64; i++) {
             switch (theBoard[i]) {
-                case 'N': materialScore = materialScore + 30;break;
-                case 'R': materialScore = materialScore + 50;break;
-                case 'B': materialScore = materialScore + 35;break;
-                case 'Q': materialScore = materialScore + 90;break;
-                case 'K': materialScore = materialScore + 900;break;
-                case 'P': materialScore = materialScore + 10;break;
-                case 'n': materialScore = materialScore - 30;break;
-                case 'r': materialScore = materialScore - 50;break;
-                case 'b': materialScore = materialScore - 35;break;
-                case 'q': materialScore = materialScore - 90;break;
-                case 'k': materialScore = materialScore - 900;break;
-                case 'p': materialScore = materialScore - 10;break;
+                case 'N': materialScore = materialScore + 300;break;
+                case 'R': materialScore = materialScore + 500;break;
+                case 'B': materialScore = materialScore + 350;break;
+                case 'Q': materialScore = materialScore + 900;break;
+                case 'K': materialScore = materialScore + 9000;break;
+                case 'P': materialScore = materialScore + 100;break;
+                case 'n': materialScore = materialScore - 300;break;
+                case 'r': materialScore = materialScore - 500;break;
+                case 'b': materialScore = materialScore - 350;break;
+                case 'q': materialScore = materialScore - 900;break;
+                case 'k': materialScore = materialScore - 9000;break;
+                case 'p': materialScore = materialScore - 100;break;
             }
         }
         // Debugging only //Log.i("WJH", "Material Counter="+String.valueOf(materialScore));
