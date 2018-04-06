@@ -26,11 +26,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.Arrays;
 
@@ -62,13 +58,12 @@ public class MainActivity extends AppCompatActivity {
             x32,x33,x34,x35,x36,x37,x38,x39,x40,x41,x42,x43,x44,x45,x46,x47,
             x48,x49,x50,x51,x52,x53,x54,x55,x56,x57,x58,x59,x60,x61,x62,x63};
 
-    int engineStrength = 3;
+    static int engineStrength;
     boolean wTurn, firstClick;
     String tryMove;
 
     static String moveOptions;
-    static long startTime, stopTime;
-    static int searchDepth, firstNum;
+    static int firstNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,28 +140,6 @@ public class MainActivity extends AppCompatActivity {
 
     }// End on create.
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     // Our new class to tell the computer to think about a move....
     public class thinkMove extends AsyncTask<String, Void, String> {
 
@@ -205,7 +178,8 @@ public class MainActivity extends AppCompatActivity {
             drawBoardPieces();
             // rename the move button.
         } else {
-            engineStrength=3;
+            // Try again, but weaker.
+            engineStrength=engineStrength-1;
             getNextMove();
         }
     } // End get next move.
@@ -288,7 +262,6 @@ public class MainActivity extends AppCompatActivity {
 
             firstClick = false;
             String myMove = tryMove + played + String.valueOf(theBoard[number]);
-            // Testing only //Log.i("WJH", myMove + "," + String.valueOf(minusNum) + "," + String.valueOf(plusNum));
 
             moveOptions= terminal("availMoves,"+String.valueOf(wTurn));
 
@@ -296,9 +269,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (Arrays.asList(separated).contains(myMove)) {
 
-                // Testing only //Log.i("WJH", myMove);
                 String query = terminal("myMove,"+myMove);
-                // Testing only //Log.i("WJH", query);
                 drawBoardPieces();
                 wTurn = !wTurn;
 
@@ -376,9 +347,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (Arrays.asList(separated).contains(myMove)) {
 
-                    // Testing only //Log.i("WJH", myMove);
                     String query = terminal("myMove," + myMove);
-                    // Testing only //Log.i("WJH", query);
                     drawBoardPieces();
                     wTurn = !wTurn;
 
@@ -487,18 +456,6 @@ public class MainActivity extends AppCompatActivity {
                 .show(); // Make sure you show your popup or it wont work very well!
 
     }
-
-    public void plyAdjustPlus(View view) {
-
-        engineStrength++;
-
-    } // End ply plus.
-
-    public void plyAdjustMinus(View view) {
-
-        engineStrength--;
-
-    } // end ply minus.
 
     public void resetGame(View view) {
         // Call for a new game and redraw the board.

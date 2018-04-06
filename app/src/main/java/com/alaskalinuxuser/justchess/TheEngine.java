@@ -2314,36 +2314,6 @@ public class TheEngine {
                 // The double step from the home row.
                 theseMoves.add(j);}
         } else if (h == 4) {
-            // The rule of en passant...
-            /* // The rule of en passant...
-            if (lastMove.charAt(0) == 'P') {
-                int tempTo = Integer.parseInt(lastMove.substring(3, 5));
-                int tempFm = Integer.parseInt(lastMove.substring(1, 3));
-                if (tempFm / 8 == 1 && tempTo / 8 == 3) { // They did a double step.
-                    if (tempTo == i + 1) { // They are on your right.
-                        theBoard[i - 7] = 'p';
-                        theBoard[i] = '*';
-                        theBoard[i + 1] = '*';
-                        if (isKingSafe()) {
-                            list = list + "per" + String.valueOf(i - 7) + "P,";
-                        }
-                        theBoard[i + 1] = 'P';
-                        theBoard[i - 9] = '*';
-                        theBoard[i] = 'p';
-                    } else if (tempTo == i - 1) { // They are on your left.
-                        theBoard[i - 9] = 'p';
-                        theBoard[i] = '*';
-                        theBoard[i - 1] = '*';
-                        if (isKingSafe()) {
-                            list = list + "pel" + String.valueOf(i - 9) + "P,";
-                        }
-                        theBoard[i - 1] = 'P';
-                        theBoard[i - 9] = '*';
-                        theBoard[i] = 'p';
-                    }
-                }
-            } // End en passant....*/
-
             if (lastMove.charAt(0)=='p') {
                 int tempTo = Integer.parseInt(lastMove.substring(3,5));
                 int tempFm = Integer.parseInt(lastMove.substring(1,3));
