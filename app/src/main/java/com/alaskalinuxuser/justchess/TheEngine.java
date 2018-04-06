@@ -27,6 +27,8 @@ public class TheEngine {
     static int wKingNeverMove, wKRNeverMove,wQRNeverMove,
             bKingNeverMove,bKRNeverMove,bQRNeverMove;
     static boolean whiteTurn, stopNow;
+    static boolean checkStaleMate = false;
+    static boolean checkMate = false;
     static int whiteKing, blackKing, plyTurn;
     static String promoteToW = "Q", getPromoteToB = "q", lastMove = "xxxxxx",
     stringBoard = "RNBQKBNRPPPPPPPP********************************pppppppprnbqkbnr";
@@ -125,6 +127,11 @@ public class TheEngine {
                 term = "set white";
             } else {whiteTurn = false;
                 term = "set black";}
+        } else if (s.startsWith("checkmate")) {
+            boolean check = isKingSafe();
+            if (!check) {
+                term = "1";
+            } else {term = "0";}
         } else if (s.startsWith("suggestMove")) {
             String part[] = s.split(",");
             if (part[1].equals("white")) {
@@ -402,12 +409,17 @@ public class TheEngine {
          */
         // Debugging only // Log.i("WJH", "Move="+move);
         lastMove = move;
-        boolean checkStaleMate = false;
+        checkStaleMate = false;
         int to,from,other;
         char piece, promote;
         if (move.length() < 6 || move.charAt(0) == '-') {
             Log.i("WJH", "Checkmate or stalemate. " + move);
             checkStaleMate = true;
+            if (!isKingSafe()) {
+                checkMate = true;
+            } else {
+                checkMate = false;
+            }
         } else { //  turn moves....
             promote = move.charAt(2);
             piece = move.charAt(0);
@@ -567,12 +579,17 @@ public class TheEngine {
         /*
          * In theory, if there are no moves, then you are in checkmate or stalemate....
          */
-        boolean checkStaleMate = false;
+        checkStaleMate = false;
         int to,from,other;
         char piece, take;
         if (move.length() < 6 || move.charAt(0) == '-') {
             Log.i("WJH", "Checkmate or stalemate. " + move);
             checkStaleMate = true;
+            if (!isKingSafe()) {
+                checkMate = true;
+            } else {
+                checkMate = false;
+            }
         } else { // undo turn moves....
             piece = move.charAt(0);
             take = move.charAt(5);

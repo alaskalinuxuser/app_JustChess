@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             x32,x33,x34,x35,x36,x37,x38,x39,x40,x41,x42,x43,x44,x45,x46,x47,
             x48,x49,x50,x51,x52,x53,x54,x55,x56,x57,x58,x59,x60,x61,x62,x63};
 
-    int engineStrength = 1;
+    int engineStrength = 2;
     boolean wTurn, firstClick;
     String tryMove;
 
@@ -173,18 +173,14 @@ public class MainActivity extends AppCompatActivity {
         // Do this in the background.
         @Override
         protected String doInBackground(String... urls) {
-
-            startTime = System.currentTimeMillis();
             // Try this.
             try {
                 terminal("makeMove,"+String.valueOf(engineStrength));
                 // Have an exception clause so you don't crash.
             } catch (Exception e) {
                 e.printStackTrace();
-                stopTime = System.currentTimeMillis();
                 return "Exception";
             }
-            stopTime = System.currentTimeMillis();
             return "Pass";
         }}// End asyncronous task of finding a move....
 
@@ -209,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
             drawBoardPieces();
             // rename the move button.
         } else {
-            engineStrength=2;
+            engineStrength=1;
             getNextMove();
         }
     } // End get next move.
@@ -292,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
 
             firstClick = false;
             String myMove = tryMove + played + String.valueOf(theBoard[number]);
-            Log.i("WJH", myMove + "," + String.valueOf(minusNum) + "," + String.valueOf(plusNum));
+            // Testing only //Log.i("WJH", myMove + "," + String.valueOf(minusNum) + "," + String.valueOf(plusNum));
 
             moveOptions= terminal("availMoves,"+String.valueOf(wTurn));
 
@@ -300,9 +296,9 @@ public class MainActivity extends AppCompatActivity {
 
             if (Arrays.asList(separated).contains(myMove)) {
 
-                Log.i("WJH", myMove);
+                // Testing only //Log.i("WJH", myMove);
                 String query = terminal("myMove,"+myMove);
-                Log.i("WJH", query);
+                // Testing only //Log.i("WJH", query);
                 drawBoardPieces();
                 wTurn = !wTurn;
 
@@ -370,9 +366,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if (Arrays.asList(separated).contains(myMove)) {
 
-                    Log.i("WJH", myMove);
+                    // Testing only //Log.i("WJH", myMove);
                     String query = terminal("myMove," + myMove);
-                    Log.i("WJH", query);
+                    // Testing only //Log.i("WJH", query);
                     drawBoardPieces();
                     wTurn = !wTurn;
 
@@ -393,7 +389,7 @@ public class MainActivity extends AppCompatActivity {
                 chessImage[firstNum].setBackgroundResource(R.drawable.highlight);
                 firstClick = true;
                 tryMove = String.valueOf(theBoard[number]) + played;
-                Log.i("WJH", tryMove);
+                // Testing only // Log.i("WJH", tryMove);
                 String query = terminal("pieceMoves,"+ String.valueOf(theBoard[number]) +
                         "," + played);
                 String[] stringArray = query.split(",");
@@ -422,7 +418,55 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        moveOptions="";
+        if (!wTurn){
+            moveOptions= terminal("suggestMove,black");
+        } else {
+            moveOptions= terminal("suggestMove,white");
+        }
+        if (moveOptions.isEmpty()) {
+            staleOrCheckMate();
+        }
+
     } // End clicked piece.
+
+    public void staleOrCheckMate() {
+        String status = terminal("checkmate");
+        if (status.equalsIgnoreCase("1")) {
+            status = "checkmate!";
+        } else {
+            status = "stalemate!";
+        }
+        String turnIs = "";
+        if (wTurn) {turnIs="White is in ";} else {turnIs="Black is in ";}
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setTitle(turnIs + status)
+                .setMessage(
+                        "Would you like to play a new game?")
+                .setPositiveButton("View Board", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        // Do nothing.
+
+                    }
+                })
+                .setNegativeButton("New Game", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        // First you define it.
+                        Intent myintent = new Intent(MainActivity.this, IntroActivity.class);
+                        myintent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        // Now you call it.
+                        startActivity(myintent);
+
+                    }
+                })
+                .show(); // Make sure you show your popup or it wont work very well!
+
+    }
 
     public void plyAdjustPlus(View view) {
 
