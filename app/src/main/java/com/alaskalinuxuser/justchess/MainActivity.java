@@ -304,7 +304,17 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!pPass) {
                     // Since we moved, if it is not pass and play, make the computer move.
-                    getNextMove();
+                    moveOptions="";
+                    if (!wTurn){
+                        moveOptions= terminal("suggestMove,black");
+                    } else {
+                        moveOptions= terminal("suggestMove,white");
+                    }
+                    if (moveOptions.isEmpty()) {
+                        staleOrCheckMate();
+                    } else {
+                        getNextMove();
+                    }
                 }
 
             } else {
@@ -374,7 +384,17 @@ public class MainActivity extends AppCompatActivity {
 
                     if (!pPass) {
                         // Since we moved, if it is not pass and play, make the computer move.
-                        getNextMove();
+                        moveOptions="";
+                        if (!wTurn){
+                            moveOptions= terminal("suggestMove,black");
+                        } else {
+                            moveOptions= terminal("suggestMove,white");
+                        }
+                        if (moveOptions.isEmpty()) {
+                            staleOrCheckMate();
+                        } else {
+                            getNextMove();
+                        }
                     }
 
                 }
