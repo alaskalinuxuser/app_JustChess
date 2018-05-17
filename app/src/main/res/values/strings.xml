@@ -19,6 +19,7 @@
         limitations under the License.</string>
 
     <string name="myGithub">https://github.com/alaskalinuxuser</string>
+    <string name="extraInfo">If in landscape mode, you can scroll the board to play.</string>
 
     <string name="myWebsite">https://thealaskalinuxuser.wordpress.com</string>
     <string name="starCount">Partial stars will be rounded. This may need to be adjusted after each game.</string>

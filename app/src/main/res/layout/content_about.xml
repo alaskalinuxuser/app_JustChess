@@ -30,4 +30,12 @@ tools:showIn="@layout/activity_about">
     android:textSize="15sp"
     android:gravity="center" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15sp"
+        android:gravity="center"
+        android:text="@string/extraInfo" />
+
 </LinearLayout>
