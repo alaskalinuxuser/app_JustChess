@@ -66,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
     static int firstNum;
 
     @Override
+    public void onResume(){
+        super.onResume();
+        Log.i("WJH", "Resumed.");
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -447,7 +454,6 @@ public class MainActivity extends AppCompatActivity {
 
                         // First you define it.
                         Intent myintent = new Intent(MainActivity.this, IntroActivity.class);
-                        myintent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         // Now you call it.
                         startActivity(myintent);
 
@@ -479,9 +485,9 @@ public class MainActivity extends AppCompatActivity {
 
                         // First you define it.
                         Intent myintent = new Intent(MainActivity.this, IntroActivity.class);
-                        myintent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         // Now you call it.
                         startActivity(myintent);
+                        finish();
 
                     }
                 })

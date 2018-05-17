@@ -31,7 +31,7 @@ public class IntroActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // First you define it.
                 Intent myintent = new Intent(IntroActivity.this, aboutActivity.class);
-                myintent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                //myintent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 // Now you call it.
                 startActivity(myintent);
             }
@@ -90,7 +90,6 @@ public class IntroActivity extends AppCompatActivity {
 
                         // First you define it.
                         Intent myintent = new Intent(IntroActivity.this, MainActivity.class);
-                        myintent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         // Now you call it.
                         startActivity(myintent);
 
@@ -107,7 +106,6 @@ public class IntroActivity extends AppCompatActivity {
 
                         // First you define it.
                         Intent myintent = new Intent(IntroActivity.this, MainActivity.class);
-                        myintent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         // Now you call it.
                         startActivity(myintent);
 
@@ -122,7 +120,6 @@ public class IntroActivity extends AppCompatActivity {
         pPass = true;
         // First you define it.
         Intent myintent = new Intent(IntroActivity.this, MainActivity.class);
-        myintent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         // Now you call it.
         startActivity(myintent);
     } // End playDouble
