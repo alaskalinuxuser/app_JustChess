@@ -428,18 +428,23 @@ public class TheEngine {
                 theBoard[63] = '*';
                 theBoard[62] = 'k';
                 theBoard[61] = 'r';
+                bKingNeverMove++;
+                bKRNeverMove++;
             } else if ("k0-0-0".equals(move)) {
                 theBoard[60] = '*';
                 theBoard[56] = '*';
                 theBoard[58] = 'k';
                 theBoard[59] = 'r';
                 theBoard[57] = '*';
+                bKingNeverMove++;
+                bQRNeverMove++;
             } else if ("K-0-0R".equals(move)) {
                 theBoard[7] = '*';
                 theBoard[6] = 'K';
                 theBoard[5] = 'R';
                 theBoard[4] = '*';
                 wKingNeverMove++;
+                wKRNeverMove++;
             } else if ("K0-0-0".equals(move)) {
                 theBoard[4] = '*';
                 theBoard[1] = '*';
@@ -447,30 +452,7 @@ public class TheEngine {
                 theBoard[3] = 'R';
                 theBoard[0] = '*';
                 wKingNeverMove++;
-            } else if ("k-0-0r,".equals(move)) {
-                theBoard[60] = '*';
-                theBoard[63] = '*';
-                theBoard[62] = 'k';
-                theBoard[61] = 'r';
-            } else if ("k0-0-0,".equals(move)) {
-                theBoard[60] = '*';
-                theBoard[56] = '*';
-                theBoard[58] = 'k';
-                theBoard[59] = 'r';
-                theBoard[57] = '*';
-            } else if ("K-0-0R,".equals(move)) {
-                theBoard[7] = '*';
-                theBoard[6] = 'K';
-                theBoard[5] = 'R';
-                theBoard[4] = '*';
-                wKingNeverMove++;
-            } else if ("K0-0-0,".equals(move)) {
-                theBoard[4] = '*';
-                theBoard[1] = '*';
-                theBoard[2] = 'K';
-                theBoard[3] = 'R';
-                theBoard[0] = '*';
-                wKingNeverMove++;
+                wQRNeverMove++;
             } else {
                 if (piece == 'p') {
                     // check for Pawn special moves....
@@ -567,10 +549,13 @@ public class TheEngine {
                     to = Integer.parseInt(move.substring(3, 5));
                     theBoard[to] = piece;
                     theBoard[from] = '*';
-                    if (from == 00) {wQRNeverMove++;}
-                    if (from == 07) {wKRNeverMove++;}
-                    if (from == 56) {bQRNeverMove++;}
-                    if (from == 63) {bKRNeverMove++;}
+                    if (piece == 'R') {
+                        if (from == 00) {wQRNeverMove++;}
+                        if (from == 07) {wKRNeverMove++;}
+                    } else if (piece == 'r') {
+                        if (from == 56) {bQRNeverMove++;}
+                        if (from == 63) {bKRNeverMove++;}
+                    }
                 }}
         }
     } // End makeMove
@@ -599,6 +584,7 @@ public class TheEngine {
                 theBoard[61] = '*';
                 theBoard[62] = '*';
                 bKingNeverMove--;
+                bKRNeverMove--;
             } else if ("k0-0-0".equals(move)) {
                 theBoard[60] = 'k';
                 theBoard[56] = 'r';
@@ -606,12 +592,14 @@ public class TheEngine {
                 theBoard[59] = '*';
                 theBoard[57] = '*';
                 bKingNeverMove--;
+                bQRNeverMove--;
             } else if ("K-0-0R".equals(move)) {
                 theBoard[5] = '*';
                 theBoard[6] = '*';
                 theBoard[4] = 'K';
                 theBoard[7] = 'R';
                 wKingNeverMove--;
+                wKRNeverMove--;
             } else if ("K0-0-0".equals(move)) {
                 theBoard[1] = '*';
                 theBoard[2] = '*';
@@ -619,32 +607,7 @@ public class TheEngine {
                 theBoard[0] = 'R';
                 theBoard[3] = '*';
                 wKingNeverMove--;
-            } else if ("k-0-0r,".equals(move)) {
-                theBoard[60] = 'k';
-                theBoard[63] = 'r';
-                theBoard[61] = '*';
-                theBoard[62] = '*';
-                bKingNeverMove--;
-            } else if ("k0-0-0,".equals(move)) {
-                theBoard[60] = 'k';
-                theBoard[56] = 'r';
-                theBoard[58] = '*';
-                theBoard[59] = '*';
-                theBoard[57] = '*';
-                bKingNeverMove--;
-            } else if ("K-0-0R,".equals(move)) {
-                theBoard[5] = '*';
-                theBoard[6] = '*';
-                theBoard[4] = 'K';
-                theBoard[7] = 'R';
-                wKingNeverMove--;
-            } else if ("K0-0-0,".equals(move)) {
-                theBoard[1] = '*';
-                theBoard[2] = '*';
-                theBoard[4] = 'K';
-                theBoard[0] = 'R';
-                theBoard[3] = '*';
-                wKingNeverMove--;
+                wQRNeverMove--;
             } else {
                 if (piece == 'P') {
                     // check for Pawn special moves....
@@ -740,10 +703,13 @@ public class TheEngine {
                     to = Integer.parseInt(move.substring(3, 5));
                     theBoard[to] = take;
                     theBoard[from] = piece;
-                    if (to == 00) {wQRNeverMove--;}
-                    if (to == 07) {wKRNeverMove--;}
-                    if (to == 56) {bQRNeverMove--;}
-                    if (to == 63) {bKRNeverMove--;}
+                    if (piece == 'R') {
+                        if (to == 00) {wQRNeverMove--;}
+                        if (to == 07) {wKRNeverMove--;}
+                    } else if (piece =='r') {
+                        if (to == 56) {bQRNeverMove--;}
+                        if (to == 63) {bKRNeverMove--;}
+                    }
                 }}
         } // End undo
     } // End undo moves
@@ -1621,29 +1587,49 @@ public class TheEngine {
             blackKing = i;
             theBoard[i] = 'k';
         }
-        // Need castle moves //
 
-        if (theBoard[60] == 'k' && isKingSafe()) {
-            if (theBoard[61] == '*' && theBoard[62] == '*' && theBoard[63] == 'r') {
-                blackKing = 61;
-                if (isKingSafe()) {
-                    blackKing = 62;
-                    if (isKingSafe()) {
-                        list = list + "k-0-0r,";
-                    } else { blackKing = 60; }
-                } else { blackKing = 60; }
-            }
-            if (theBoard[57] == '*' && theBoard[58] == '*' &&
-                    theBoard[59] == '*' && theBoard[56] == 'r') {
-                blackKing = 59;
-                if (isKingSafe()) {
-                    blackKing = 58;
-                    if (isKingSafe()) {
-                        list = list + "k0-0-0,";
-                    } else { blackKing = 60; }
-                } else { blackKing = 60; }
-            }
-        }
+        if (bKingNeverMove == 0) {
+            // So only if the king has never moved!
+            if (theBoard[60] == 'k' && isKingSafe()) {
+                // And he is on his own square, not in check!
+                if (bKRNeverMove %2 == 0) {
+                    // Since his rook never moved, then:
+                    if (theBoard[63] == 'r' && theBoard[62] == '*' && theBoard[61] == '*') {
+                        // And his rook is there, and the spaces are empty....
+                        blackKing = 61;
+                        if (isKingSafe()) { // Is the king safe on 61?
+                            blackKing = 62;
+                            if (isKingSafe()) { // Is the king safe on 62?
+                                list = list + "k-0-0r,";
+                            } else {
+                                blackKing = 60;
+                            }
+                        } else {
+                            blackKing = 60;
+                        }
+                        blackKing = 60;; // Make sure that we put the king back.
+                    }
+                } // End kingside castle.
+                if (bQRNeverMove %2 == 0) {
+                    // Since black queen's rook never moved....
+                    if (theBoard[56] == 'r' && theBoard[57] == '*' &&
+                            theBoard[58] == '*' && theBoard[59] == '*') {
+                        // And since the rook is there and the spaces are empty....
+                        blackKing = 59;
+                        if (isKingSafe()) { // Is the king safe on 59?
+                            blackKing = 58;
+                            if (isKingSafe()) { // Is the king safe on 58?
+                                list = list + "k0-0-0,";
+                            } else {
+                                blackKing = 60;
+                            }
+                        } else {
+                            blackKing = 60;
+                        }
+                    } blackKing = 60; // Make sure we put the king back.
+                } // end bqrook never moved.
+            } // end king is safe and on 60.
+        } // end black king never moved.
 
         // Castle moves //
         return list;
@@ -2278,24 +2264,48 @@ public class TheEngine {
         }
         // Need castle moves //
 
-        if (theBoard[4] == 'K' && isKingSafe()) {
-            if (theBoard[7] == 'R' && theBoard[5] == '*' && theBoard[6] == '*') {
-                whiteKing = 5;
-                if (isKingSafe()) {
-                    whiteKing = 6;
-                    if (isKingSafe()) {
-                        list = list + "K-0-0R,";
-                    } else { whiteKing = 4; }
-                } else { whiteKing = 4; }}
-            if (theBoard[0] == 'R' && theBoard[1] == '*' &&
-                    theBoard[2] == '*' && theBoard[3] == '*') {
-                whiteKing = 3;
-                if (isKingSafe()) {
-                    whiteKing = 2;
-                    if (isKingSafe()) {
-                        list = list + "K0-0-0,";
-                    } else { whiteKing = 4; }
-                } else { whiteKing = 4; }}}
+        if (wKingNeverMove == 0) {
+            // So only if the king has never moved!
+            if (theBoard[4] == 'K' && isKingSafe()) {
+                // And he is on his own square, not in check!
+                if (wKRNeverMove %2 == 0) {
+                    // Since his rook never moved, then:
+                    if (theBoard[7] == 'R' && theBoard[5] == '*' && theBoard[6] == '*') {
+                        // And his rook is there, and the spaces are empty....
+                        whiteKing = 5;
+                        if (isKingSafe()) { // Is the king safe on 5?
+                            whiteKing = 6;
+                            if (isKingSafe()) { // Is the king safe on 6?
+                                list = list + "K-0-0R,";
+                            } else {
+                                whiteKing = 4;
+                            }
+                        } else {
+                            whiteKing = 4;
+                        }
+                        whiteKing = 4; // Make sure that we put the king back.
+                    }
+                } // End kingside castle.
+                if (wQRNeverMove %2 == 0) {
+                    // Since white queen's rook never moved....
+                    if (theBoard[0] == 'R' && theBoard[1] == '*' &&
+                            theBoard[2] == '*' && theBoard[3] == '*') {
+                        // And since the rook is there and the spaces are empty....
+                        whiteKing = 3;
+                        if (isKingSafe()) { // Is the king safe on 3?
+                            whiteKing = 2;
+                            if (isKingSafe()) { // Is the king safe on 2?
+                                list = list + "K0-0-0,";
+                            } else {
+                                whiteKing = 4;
+                            }
+                        } else {
+                            whiteKing = 4;
+                        }
+                    } whiteKing = 4; // Make sure we put the king back.
+                } // end wqrook never moved.
+            } // end king is safe and on 4.
+        } // end white king never moved.
 
         // Castle moves //
         return list;
@@ -2402,6 +2412,9 @@ public class TheEngine {
             theBoard[k] = moveSquare.charAt(0);
             theBoard[i] = 'P';
         }
+        Log.i("WJH white pawn list", list + " " + whiteTurn + " " + whiteKing +
+                " " + blackKing + " " + String.valueOf(wKingNeverMove) +
+                " " + String.valueOf(wKRNeverMove) + " " + String.valueOf(wQRNeverMove));
         return list;
     } // End pawn moves.
 
